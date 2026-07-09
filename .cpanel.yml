@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export PATH=/bin:/usr/bin:/usr/local/bin
+    - npm install
+    - npm run build

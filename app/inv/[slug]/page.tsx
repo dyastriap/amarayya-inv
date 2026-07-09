@@ -1,7 +1,7 @@
 // src/app/[slug]/page.tsx
 import { notFound } from 'next/navigation';
-import Template1 from '@/templates/template1/page';
-import Template2 from '@/templates/template2/page';
+import Template1 from '../../../templates/template1/page';
+import Template2 from '../../../templates/template2/page';
 
 // Pastikan datanya diketik persis seperti ini (case-sensitive)
 const mockDatabase: Record<string, { clientName: string; weddingDate: string; templateId: string }> = {
