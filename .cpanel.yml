@@ -1,6 +1,5 @@
 ---
 deployment:
-  tasks:
-    - export PATH=/bin:/usr/bin:/usr/local/bin
-    - npm install
-    - npm run build
+tasks:
+- export DEPLOYPATH=/home/usercpanel/public_html/git
+- /bin/cp -r * $DEPLOYPATH
