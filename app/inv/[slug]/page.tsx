@@ -1,10 +1,17 @@
 // src/app/[slug]/page.tsx
 import { notFound } from 'next/navigation';
-import Template1 from '../../../templates/template1/page';
-import Template2 from '../../../templates/template2/page';
+import Template1 from '@/templates/template1/page';
+import Template2 from '@/templates/template2/page';
 
-// Pastikan datanya diketik persis seperti ini (case-sensitive)
-const mockDatabase: Record<string, { clientName: string; weddingDate: string; templateId: string }> = {
+// 1. Tipe Data Client
+export interface ClientData {
+  clientName: string;
+  weddingDate: string;
+  templateId: string;
+}
+
+// 2. Mock Database
+const mockDatabase: Record<string, ClientData> = {
   'budi-dan-ani': {
     clientName: 'Budi & Ani',
     weddingDate: 'Senin, 17 Agustus 2026',
@@ -15,34 +22,47 @@ const mockDatabase: Record<string, { clientName: string; weddingDate: string; te
     weddingDate: 'Sabtu, 12 September 2026',
     templateId: 'template2',
   },
+  'mustofa-dan-firsta': {
+    clientName: 'Mustofa dan Firsta',
+    weddingDate: 'Minggu, 06 September 2026',
+    templateId: 'template2',
+  },
 };
 
-// Di Next.js 15, params dibungkus di dalam Promise
+// 3. Mapping Komponen Template
+const TEMPLATE_COMPONENTS: Record<string, React.ComponentType<{ data: ClientData }>> = {
+  template1: Template1,
+  template2: Template2,
+};
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export default async function InvitationPage({ params }: PageProps) {
-  // 1. Wajib pakai await untuk mengambil isi slug-nya
-  const resolvedParams = await params;
-  const slug = resolvedParams.slug;
+  // Await params (Wajib di Next.js 15)
+  const { slug } = await params;
   
-  // 2. Ambil data dari mockDatabase berdasarkan slug
+  // Ambil data klien dari database
   const clientData = mockDatabase[slug];
 
-  // 3. Jika data tidak ketemu, jalankan fungsi notFound() bawaan Next.js
+  // Jika slug tidak ditemukan, lempar ke halaman 404
   if (!clientData) {
-    return notFound();
+    notFound();
   }
 
-  // 4. Render template sesuai templateId
-  if (clientData.templateId === 'template1') {
-    return <Template1 data={clientData} />;
+  // Pilih komponen template berdasarkan templateId
+  const SelectedTemplate = TEMPLATE_COMPONENTS[clientData.templateId];
+
+  if (!SelectedTemplate) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-10 text-center">
+        <p className="text-stone-500 font-medium">
+          Template <code className="text-rose-600 font-bold">{clientData.templateId}</code> belum dikonfigurasi.
+        </p>
+      </div>
+    );
   }
 
-  if (clientData.templateId === 'template2') {
-    return <Template2 data={clientData} />;
-  }
-
-  return <div className="p-10 text-center">Template belum dikonfigurasi.</div>;
+  return <SelectedTemplate data={clientData} />;
 }
