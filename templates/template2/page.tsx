@@ -71,8 +71,8 @@ const ASSETS = {
   rosePatternBg: "https://cdn-builder.viding.co/2521/Rose-pattern.png",
   buketBunga: "https://cdn-builder.viding.co/2503/Tree-New-copy-9.png",
   
-  defaultGroomPhoto: "/image/client1/FotoPria.jpeg",
-  defaultBridePhoto: "/image/client1/FotoWanita.jpg",
+  defaultGroomPhoto: "/image/client1/FotoPria.webp",
+  defaultBridePhoto: "/image/client1/FotoWanita.webp",
   foto1: "/image/client1/foto1.webp",
   foto2: "/image/client1/foto2.webp",
   foto3: "/image/client1/foto3.webp",
