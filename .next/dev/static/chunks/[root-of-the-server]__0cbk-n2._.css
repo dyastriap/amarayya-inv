@@ -1171,6 +1171,10 @@
     max-height: calc(var(--spacing) * 72);
   }
 
+  .max-h-\[500px\] {
+    max-height: 500px;
+  }
+
   .min-h-\[80vh\] {
     min-height: 80vh;
   }
@@ -2888,8 +2892,20 @@
     padding-top: calc(var(--spacing) * 16);
   }
 
+  .pt-20 {
+    padding-top: calc(var(--spacing) * 20);
+  }
+
+  .pt-22 {
+    padding-top: calc(var(--spacing) * 22);
+  }
+
   .pt-24 {
     padding-top: calc(var(--spacing) * 24);
+  }
+
+  .pt-25 {
+    padding-top: calc(var(--spacing) * 25);
   }
 
   .pr-1 {
@@ -2978,6 +2994,11 @@
   .text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+
+  .text-6xl {
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
   }
 
   .text-7xl {
@@ -3141,6 +3162,10 @@
     letter-spacing: var(--tracking-widest);
   }
 
+  .break-all {
+    word-break: break-all;
+  }
+
   .whitespace-pre-wrap {
     white-space: pre-wrap;
   }
@@ -3211,6 +3236,10 @@
 
   .text-blue-400 {
     color: var(--color-blue-400);
+  }
+
+  .text-emerald-100 {
+    color: var(--color-emerald-100);
   }
 
   .text-emerald-200 {
@@ -3666,6 +3695,11 @@
     transition-timing-function: var(--ease-in-out);
   }
 
+  .select-all {
+    -webkit-user-select: all;
+    user-select: all;
+  }
+
   .select-none {
     -webkit-user-select: none;
     user-select: none;
@@ -3833,6 +3867,12 @@
   }
 
   @media (hover: hover) {
+    .hover\:bg-\[\#3f070e\]:hover {
+      background-color: #3f070e;
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-\[\#641823\]:hover {
       background-color: #641823;
     }
@@ -3859,6 +3899,12 @@
   @media (hover: hover) {
     .hover\:bg-amber-900:hover {
       background-color: var(--color-amber-900);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-emerald-900:hover {
+      background-color: var(--color-emerald-900);
     }
   }
 
@@ -4090,6 +4136,12 @@
   @media (min-width: 48rem) {
     .md\:grid-cols-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .md\:p-12 {
+      padding: calc(var(--spacing) * 12);
     }
   }
 
