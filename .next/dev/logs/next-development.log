@@ -24,3 +24,5 @@
 {"timestamp":"01:15:06.174","source":"Browser","level":"LOG","message":"Autoplay ditahan oleh browser: {}"}
 {"timestamp":"01:15:20.995","source":"Server","level":"ERROR","message":"Database Error: Error: getaddrinfo ENOTFOUND amarayya.com"}
 {"timestamp":"01:17:20.197","source":"Server","level":"LOG","message":"  Reload env: .env"}
+{"timestamp":"02:01:54.367","source":"Server","level":"LOG","message":"✓ Compiled in 562ms"}
+{"timestamp":"02:07:38.260","source":"Server","level":"LOG","message":"✓ Compiled in 257ms"}

@@ -73,9 +73,16 @@ const ASSETS = {
   
   defaultGroomPhoto: "/image/client1/FotoPria.jpeg",
   defaultBridePhoto: "/image/client1/FotoWanita.jpg",
+  foto1:"/image/client1/foto1.webp",
+  foto2:"/image/client1/foto2.webp",
+  foto3:"/image/client1/foto3.webp",
+  foto4:"/image/client1/foto4.webp",
+  foto5:"/image/client1/foto5.webp",
+  foto6:"/image/client1/foto6.webp",
+
   
   igIcon: "https://cdn-builder.viding.co/2524/IG(1).png",
-  defaultMusic: "https://raw.githubusercontent.com/dyastri/assets-wedding/main/tulus-teman-hidup.mp3",
+  defaultMusic: "/audio/teman-hidup.mp3",
   bcaLogo: "/image/client1/logo_bca.png",
 };
 
