@@ -937,7 +937,7 @@ export default function Template1({ data }: TemplateProps) {
             </p>
             
             <p className="font-wedding-title text-4xl text-amber-200 drop-shadow-md py-1">
-              Mustofa <br /> & <br /> Firsta
+              Mustopa <br /> & <br /> Firsta
             </p>
           </div>
 
