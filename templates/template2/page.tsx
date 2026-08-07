@@ -120,7 +120,7 @@ export default function Template1({ data }: TemplateProps) {
   const rawNames = data.clientName ? data.clientName.split(/&|dan/i) : [];
   const groomFirst = data.groomName 
     ? data.groomName.split(' ')[0] 
-    : (rawNames[0] ? rawNames[0].trim() : 'Mustofa');
+    : (rawNames[0] ? rawNames[0].trim() : 'Mustopa');
   
   const brideFirst = data.brideName 
     ? data.brideName.split(' ')[0] 
@@ -511,7 +511,7 @@ export default function Template1({ data }: TemplateProps) {
 
               <div className="space-y-1.5 pt-2">
                 <h2 className="font-serif-wedding text-2xl sm:text-3xl font-bold text-white tracking-wide leading-snug drop-shadow-md">
-                  {data.groomName || 'Mustofa Abdulmajid, S.E.'}
+                  {data.groomName || 'Mustopa Abdulmajid, S.E.'}
                 </h2>
 
                 <p className="text-xs text-stone-200/90 font-light max-w-xs mx-auto pt-1 leading-relaxed">
@@ -854,7 +854,7 @@ export default function Template1({ data }: TemplateProps) {
                     {data.groomBankNumber || '7005805091'}
                   </p>
                   <p className="text-xs text-stone-300">
-                    a.n. {data.groomBankHolder || data.groomName || 'Mustofa Abdulmajid'}
+                    a.n. {data.groomBankHolder || data.groomName || 'Mustopa Abdulmajid'}
                   </p>
                 </div>
                 <button
