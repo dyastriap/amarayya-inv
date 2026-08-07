@@ -73,13 +73,12 @@ const ASSETS = {
   
   defaultGroomPhoto: "/image/client1/FotoPria.jpeg",
   defaultBridePhoto: "/image/client1/FotoWanita.jpg",
-  foto1:"/image/client1/foto1.webp",
-  foto2:"/image/client1/foto2.webp",
-  foto3:"/image/client1/foto3.webp",
-  foto4:"/image/client1/foto4.webp",
-  foto5:"/image/client1/foto5.webp",
-  foto6:"/image/client1/foto6.webp",
-
+  foto1: "/image/client1/foto1.webp",
+  foto2: "/image/client1/foto2.webp",
+  foto3: "/image/client1/foto3.webp",
+  foto4: "/image/client1/foto4.webp",
+  foto5: "/image/client1/foto5.webp",
+  foto6: "/image/client1/foto6.webp",
   
   igIcon: "https://cdn-builder.viding.co/2524/IG(1).png",
   defaultMusic: "/audio/teman-hidup.mp3",
@@ -101,6 +100,7 @@ export default function Template1({ data }: TemplateProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [guestName, setGuestName] = useState<string>('Tamu Undangan');
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -113,7 +113,6 @@ export default function Template1({ data }: TemplateProps) {
     message: ''
   });
 
-  // State untuk Data Database
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isFetching, setIsFetching] = useState<boolean>(true);
   const [wishesList, setWishesList] = useState<WishItem[]>([]);
@@ -129,7 +128,7 @@ export default function Template1({ data }: TemplateProps) {
   
   const monogramText = data.monogram || `${groomFirst.charAt(0)}${brideFirst.charAt(0)}`;
 
-const tempGalleryImages = [
+  const tempGalleryImages = [
     ASSETS.foto1,
     ASSETS.foto2,
     ASSETS.foto3,
@@ -138,9 +137,8 @@ const tempGalleryImages = [
     ASSETS.foto6,
   ];
 
-  const defaultAddress = "Kp. Bojong Kaum, Rt. 01/02 Ds. Bojong Kec. Kemang Kab. Bogor kode pos 16310 (Rumah Ustd Yeyep)";
+  const defaultAddress = "Kp. Bojong Kaum, Rt. 01/02 Ds. Bojong Kec. Kemang Kab. Bogor kode pos 16310";
 
-  // Fungsi Fetch Database
   const fetchWishes = async () => {
     try {
       const res = await fetch(`/api/wishes?clientName=${encodeURIComponent(data.clientName)}`);
@@ -157,7 +155,13 @@ const tempGalleryImages = [
 
   useEffect(() => {
     setIsMounted(true);
-    fetchWishes(); // Eksekusi Fetch saat komponen load
+    fetchWishes();
+
+    const params = new URLSearchParams(window.location.search);
+    const to = params.get('to');
+    if (to) {
+      setGuestName(to);
+    }
 
     const targetDate = new Date(data.weddingDate).getTime() || new Date('2027-11-27T10:00:00').getTime();
 
@@ -201,7 +205,6 @@ const tempGalleryImages = [
     }
   };
 
-  // Fungsi Submit Database
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.message) return;
@@ -222,7 +225,7 @@ const tempGalleryImages = [
 
       if (response.ok) {
         const newWish = await response.json();
-        setWishesList([newWish, ...wishesList]); // Update List UI otomatis
+        setWishesList([newWish, ...wishesList]);
         alert(`Terima kasih ${formData.name}, konfirmasi kehadiran & ucapan Anda telah terkirim!`);
         setFormData({ name: '', phone: '', guests: 1, attendance: 'Hadir', address: '', message: '' });
       } else {
@@ -296,82 +299,62 @@ const tempGalleryImages = [
             exit={{ y: '-100%', transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] } }}
             className="fixed inset-0 z-50 max-w-md mx-auto min-h-screen flex flex-col justify-between items-center bg-[#4d0a13] overflow-hidden text-center shadow-2xl font-body-wedding border-x border-amber-900/40"
           >
+            {/* Background menggunakan foto3 dengan penggelapan agar teks kontras */}
             <div 
-              className="absolute inset-0 bg-cover bg-top opacity-40 pointer-events-none z-0" 
-              style={{ backgroundImage: `url(${ASSETS.cloudSkyBg})` }} 
+              className="absolute inset-0 bg-cover bg-center z-0 filter brightness-[0.65]" 
+              style={{ backgroundImage: `url(${ASSETS.foto3})` }} 
             />
 
-            <div className="absolute inset-0 pointer-events-none z-0">
-              <img 
-                src={ASSETS.mountainBg} 
-                alt="Pegunungan" 
-                className="w-full h-full object-cover opacity-65" 
-              />
+            {/* Monogram Atas */}
+            <div className="pt-10 z-10 w-full flex flex-col items-center">
+              <div className="w-16 h-24 rounded-full border border-amber-300 flex items-center justify-center p-1 bg-black/30 shadow-md">
+                <span className="font-monogram text-3xl font-normal text-amber-200 tracking-tighter drop-shadow">
+                  {monogramText}
+                </span>
+              </div>
             </div>
 
-            <img src={ASSETS.sakuraTreeLeft} alt="Sakura Left" className="absolute -top-10 -left-10 w-72 h-72 object-contain opacity-95 z-0 pointer-events-none" />
-            <img src={ASSETS.sakuraTreeLeft} alt="Sakura Right" className="absolute -top-10 -right-10 w-72 h-72 object-contain opacity-95 z-0 pointer-events-none transform scale-x-[-1]" />
-
-            <img src={ASSETS.treeRimbun} alt="Pohon Rimbun" className="absolute left-[-60px] top-44 w-56 h-72 object-contain opacity-80 z-0 pointer-events-none" />
-            <img src={ASSETS.treeRimbun} alt="Pohon Rimbun" className="absolute right-[-60px] top-44 w-56 h-72 object-contain opacity-80 z-0 pointer-events-none transform scale-x-[-1]" />
-
-            <img src={ASSETS.pucukRebungLeft} alt="Pucuk Rebung Left" className="absolute left-0 top-0 h-full w-8 sm:w-10 object-cover z-30 pointer-events-none" />
-            <img src={ASSETS.pucukRebungRight} alt="Pucuk Rebung Right" className="absolute right-0 top-0 h-full w-8 sm:w-10 object-cover z-30 pointer-events-none" />
-
-            <div className="pt-6 z-10">
-              <span className="font-wedding-title text-2xl text-pink-500 font-bold tracking-wider">Amarayya Inv</span>
-            </div>
-
-            <div className="relative z-10 w-[84%] max-w-xs bg-[#3f070e]/20 rounded-t-[160px] pt-12 pb-28 px-5 border border-amber-300/30 shadow-2xl space-y-3 mt-6 mb-[-100px]">
-              <img src={ASSETS.roseGif} alt="Mawar Left" className="absolute -left-6 top-16 w-20 h-20 opacity-80 pointer-events-none rotate-12" />
-              <img src={ASSETS.roseGif} alt="Mawar Right" className="absolute -right-6 top-16 w-20 h-20 opacity-80 pointer-events-none -rotate-12 transform scale-x-[-1]" />
-
-              <p className="text-[11px] text-stone-200 font-medium tracking-wide pt-2 drop-shadow">
-                We Invite You to The Wedding of
-              </p>
-
-              <h1 className="font-serif-wedding text-2xl sm:text-3xl font-normal text-white tracking-wide leading-tight py-1 drop-shadow-md">
-                {data.clientName || 'Nama Mempelai'}
-              </h1>
-
-              <div className="space-y-1 pt-1 text-stone-200 drop-shadow">
-                <p className="text-xs font-semibold">{data.eventName || 'Resepsi Nikah'}</p>
-                <p className="text-xs font-medium">{data.weddingDate || '06 September 2026'}</p>
-                <p className="text-xs font-medium text-stone-300">{data.eventTime || '10:00 - Selesai'}</p>
+            {/* Kontainer Polosan tanpa Shape Rumah */}
+            <div className="relative z-10 w-full px-6 flex flex-col items-center justify-center flex-grow space-y-4">
+              
+              <div className="space-y-1 text-center">
+                <h1 className="font-serif-wedding text-4xl sm:text-5xl font-normal text-white tracking-wide leading-tight drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">
+                  {groomFirst}
+                </h1>
+                <div className="font-wedding-title text-4xl text-amber-300 py-0.5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">&</div>
+                <h1 className="font-serif-wedding text-4xl sm:text-5xl font-normal text-white tracking-wide leading-tight drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">
+                  {brideFirst}
+                </h1>
               </div>
 
-              <div className="pt-4">
+              
+
+              <div className="pt-6 pb-2 w-full max-w-[240px] text-center">
+                <p className="text-[11px] text-stone-300 font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mb-1">
+                  Kepada Yth. Bapak/Ibu/Saudara/i:
+                </p>
+                <p className="font-serif-wedding text-2xl text-amber-300 font-bold tracking-wide py-1 drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)] capitalize">
+                  {guestName}
+                </p>
+              </div>
+
+              <div className="pt-2">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleOpenInvitation}
-                  className="inline-flex items-center justify-center gap-2 bg-[#3f070e] hover:bg-[#2e040a] text-amber-200 font-semibold text-xs py-2.5 px-6 rounded-full border border-amber-400/40 shadow-xl transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#851824]/90 hover:bg-[#641823] backdrop-blur-sm text-amber-200 font-bold text-xs py-3.5 px-10 rounded-full border border-amber-400/60 shadow-[0_4px_15px_rgba(0,0,0,0.6)] transition-all cursor-pointer uppercase tracking-widest"
                 >
                   <span>Buka Undangan</span>
-                  <span className="text-xs">✉️</span>
+                  <span className="text-sm">✉️</span>
                 </motion.button>
               </div>
             </div>
 
-            <div className="relative w-full h-80 z-20 overflow-hidden mt-auto pointer-events-none">
-              <img 
-                src={ASSETS.rumahLimas} 
-                alt="Rumah Limas" 
-                className="absolute bottom-12 left-1/2 transform -translate-x-1/2 w-[120%] max-w-none opacity-95 object-contain z-0 pointer-events-auto" 
-              />
-              
-              <img src={ASSETS.purpleLotusGif} alt="Daun Ungu Kiri" className="absolute -left-2 bottom-12 w-32 h-40 object-contain z-10 opacity-90" />
-              <img src={ASSETS.purpleLotusGif} alt="Daun Ungu Kanan" className="absolute -right-2 bottom-12 w-32 h-40 object-contain z-10 opacity-90 transform scale-x-[-1]" />
-              
-              <img src={ASSETS.roseGif} alt="Red Rose Left" className="absolute -left-8 bottom-[-10px] w-40 h-40 object-contain z-30 rotate-12" />
-              <img src={ASSETS.roseGif} alt="Red Rose Right" className="absolute -right-8 bottom-[-10px] w-40 h-40 object-contain z-30 transform scale-x-[-1] -rotate-12" />
-              
-              <img src={ASSETS.roseGif} alt="Red Rose Mid Left" className="absolute left-[22%] bottom-[-15px] w-28 h-28 object-contain z-25 -rotate-6 opacity-90" />
-              <img src={ASSETS.roseGif} alt="Red Rose Mid Right" className="absolute right-[22%] bottom-[-15px] w-28 h-28 object-contain z-25 rotate-6 opacity-90 transform scale-x-[-1]" />
-
-              <img src={ASSETS.lotusGif} alt="Lotus White Left" className="absolute left-6 bottom-[-8px] w-32 h-32 object-contain z-40" />
-              <img src={ASSETS.lotusGif} alt="Lotus White Center" className="absolute left-1/2 transform -translate-x-1/2 bottom-[-18px] w-28 h-28 object-contain z-35 opacity-90" />
-              <img src={ASSETS.lotusGif} alt="Lotus White Right" className="absolute right-6 bottom-[-8px] w-32 h-32 object-contain z-40 transform scale-x-[-1]" />
+            <div className="pb-10 z-10 w-full text-center">
+              <p className="text-[11px] text-stone-300 tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                Terima kasih atas kehadiran & doa restu Anda
+              </p>
             </div>
 
           </motion.div>
@@ -429,9 +412,7 @@ const tempGalleryImages = [
               </h1>
             </div>
 
-            <p className="text-xs text-stone-200 font-medium tracking-wide pt-3 drop-shadow">
-              We're getting married
-            </p>
+           
           </div>
 
           <div className="relative w-full h-80 z-20 overflow-hidden mt-auto pointer-events-none">
@@ -661,11 +642,12 @@ const tempGalleryImages = [
                   <div className="w-20 h-[1px] bg-amber-400/60 mx-auto"></div>
                 </div>
 
-                <div className="space-y-5 z-10 w-full">
-                  <div className="font-serif-wedding text-[26px] leading-tight text-white tracking-wide drop-shadow-md px-2">
-                    {data.weddingDate || 'Minggu, 06 September\n2026'}
+                <div className="space-y-3 z-10 w-full">
+                  <div className="font-serif-wedding text-[24px] leading-snug text-white tracking-wide drop-shadow-md px-2">
+                    <p>Minggu,</p>
+                    <p className="text-amber-200">06 September 2026</p>
                   </div>
-                  <div className="inline-flex items-center justify-center gap-2 bg-[#2a0307] px-6 py-2.5 rounded-full border border-amber-500/10 text-amber-300 text-[11px] font-bold tracking-widest shadow-inner">
+                  <div className="inline-flex items-center justify-center gap-2 bg-[#2a0307] px-6 py-2.5 rounded-full border border-amber-500/10 text-amber-300 text-[11px] font-bold tracking-widest shadow-inner mt-2">
                     {data.eventTime || '10:00 WIB - Selesai'}
                   </div>
                 </div>
