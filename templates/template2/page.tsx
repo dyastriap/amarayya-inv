@@ -81,7 +81,7 @@ const ASSETS = {
   foto6: "/image/client1/foto6.webp",
   
   igIcon: "https://cdn-builder.viding.co/2524/IG(1).png",
-  defaultMusic: "/audio/teman-hidup.mp3",
+  defaultMusic: "/audio/lagu-pernikahan.mp3",
   bcaLogo: "/image/client1/logo_bca.png",
 };
 
@@ -920,12 +920,33 @@ export default function Template1({ data }: TemplateProps) {
           </motion.div>
         </section>
 
-        {/* FOOTER */}
-        <footer className="px-6 py-10 text-center border-t border-amber-500/20 text-[11px] text-stone-400 space-y-2 relative overflow-hidden bg-[#2c0409]">
-          <img src={ASSETS.pucukRebungTop} alt="Footer Border" className="absolute bottom-0 inset-x-0 w-full opacity-30 transform rotate-180 pointer-events-none" />
-          <p className="font-wedding-title text-3xl text-amber-200 relative z-10">{data.clientName}</p>
-          <p className="relative z-10">Terima kasih atas doa & restu Anda.</p>
-          <p className="text-[9px] opacity-60 relative z-10">Crafted with ❤️ by Amarayya Invitation</p>
+     
+        <footer className="px-6 pt-24 pb-16 text-center border-t border-amber-500/20 text-xs text-stone-300 space-y-6 relative overflow-hidden bg-[#2c0409]">
+          {/* Ornamen Atas */}
+          <img src={ASSETS.pucukRebungTop} alt="Footer Border" className="absolute top-0 inset-x-0 w-full opacity-40 transform rotate-180 pointer-events-none" />
+          
+          <div className="relative z-10 max-w-xs mx-auto space-y-5">
+            {/* Kotak teks semi-transparan agar tulisan sangat kontras dan tidak bertabrakan dengan motif background */}
+            <div className="bg-[#3f070e]/40 backdrop-blur-sm p-5 rounded-2xl border border-amber-500/20 shadow-xl space-y-3">
+              <p className="font-light leading-relaxed text-stone-200 text-xs">
+                Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.
+              </p>
+            </div>
+            
+            <div className="space-y-1 pt-2">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-amber-300/90 font-bold">
+                Kami yang berbahagia
+              </p>
+              
+              <p className="font-wedding-title text-4xl sm:text-5xl text-amber-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] py-1">
+                {data.clientName}
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-6 relative z-10 border-t border-amber-500/10">
+            <p className="text-[9px] opacity-60 tracking-wider">Crafted with ❤️ by Amarayya Invitation</p>
+          </div>
         </footer>
 
       </main>
