@@ -22,8 +22,8 @@ const mockDatabase: Record<string, ClientData> = {
     weddingDate: 'Sabtu, 12 September 2026',
     templateId: 'template2',
   },
-  'mustofa-dan-firsta': {
-    clientName: 'Mustofa dan Firsta',
+  'mustopa-dan-firsta': {
+    clientName: 'Mustopa dan Firsta',
     weddingDate: 'Minggu, 06 September 2026',
     templateId: 'template2',
   },

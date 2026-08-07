@@ -181,3 +181,9 @@
 {"timestamp":"03:09:09.230","source":"Server","level":"LOG","message":"✓ Compiled in 106ms"}
 {"timestamp":"03:35:48.020","source":"Server","level":"LOG","message":"✓ Compiled in 620ms"}
 {"timestamp":"03:36:00.150","source":"Server","level":"LOG","message":"✓ Compiled in 183ms"}
+{"timestamp":"03:37:13.160","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"03:37:13.585","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"03:37:14.502","source":"Server","level":"ERROR","message":"Database Error: Error: getaddrinfo ENOTFOUND amarayya.com"}
+{"timestamp":"05:04:31.349","source":"Server","level":"LOG","message":"✓ Compiled in 453ms"}
+{"timestamp":"05:04:40.030","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"05:04:40.770","source":"Server","level":"ERROR","message":"Database Error: Error: getaddrinfo ENOTFOUND amarayya.com"}
