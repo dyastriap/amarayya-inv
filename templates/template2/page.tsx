@@ -129,13 +129,13 @@ export default function Template1({ data }: TemplateProps) {
   
   const monogramText = data.monogram || `${groomFirst.charAt(0)}${brideFirst.charAt(0)}`;
 
-  const tempGalleryImages = [
-    data.groomPhoto || ASSETS.defaultGroomPhoto,
-    data.bridePhoto || ASSETS.defaultBridePhoto,
-    data.bridePhoto || ASSETS.defaultBridePhoto,
-    data.groomPhoto || ASSETS.defaultGroomPhoto,
-    data.bridePhoto || ASSETS.defaultBridePhoto,
-    data.groomPhoto || ASSETS.defaultGroomPhoto,
+const tempGalleryImages = [
+    ASSETS.foto1,
+    ASSETS.foto2,
+    ASSETS.foto3,
+    ASSETS.foto4,
+    ASSETS.foto5,
+    ASSETS.foto6,
   ];
 
   const defaultAddress = "Kp. Bojong Kaum, Rt. 01/02 Ds. Bojong Kec. Kemang Kab. Bogor kode pos 16310 (Rumah Ustd Yeyep)";
