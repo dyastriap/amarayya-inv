@@ -1,4 +1,5 @@
 {
   "/(main)/page": "app/(main)/page.js",
+  "/api/wishes/route": "app/api/wishes/route.js",
   "/inv/[slug]/page": "app/inv/[slug]/page.js"
 }

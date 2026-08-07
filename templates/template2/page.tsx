@@ -25,6 +25,7 @@ export interface ClientData {
   groomPhoto?: string;
   bridePhoto?: string;
   audioUrl?: string;
+  giftAddress?: string;
 }
 
 interface TemplateProps {
@@ -68,14 +69,14 @@ const ASSETS = {
   lotusGif: "https://cdn-builder.viding.co/2512/Lotus-2.gif",
   purpleLotusGif: "https://cdn-builder.viding.co/2513/lotus-copy-3.gif",
   rosePatternBg: "https://cdn-builder.viding.co/2521/Rose-pattern.png",
+  buketBunga: "https://cdn-builder.viding.co/2503/Tree-New-copy-9.png",
   
   defaultGroomPhoto: "/image/client1/FotoPria.jpeg",
   defaultBridePhoto: "/image/client1/FotoWanita.jpg",
   
   igIcon: "https://cdn-builder.viding.co/2524/IG(1).png",
-  
-  // DEFAULT MUSIC: TULUS - TEMAN HIDUP (Atau bisa ganti ke '/audio/teman-hidup.mp3')
-  defaultMusic: "/audio/teman-hidup.mp3"
+  defaultMusic: "https://raw.githubusercontent.com/dyastri/assets-wedding/main/tulus-teman-hidup.mp3",
+  bcaLogo: "/image/client1/logo_bca.png",
 };
 
 const fadeInUp: Variants = {
@@ -105,14 +106,10 @@ export default function Template1({ data }: TemplateProps) {
     message: ''
   });
 
-  const [wishesList, setWishesList] = useState<WishItem[]>([
-    { 
-      name: 'Doni Irza', 
-      address: 'Jakarta', 
-      attendance: 'Hadir',
-      message: `Selamat untuk ${data.clientName}, semoga menjadi keluarga Sakinah Mawaddah Warahmah! 🤲✨` 
-    }
-  ]);
+  // State untuk Data Database
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isFetching, setIsFetching] = useState<boolean>(true);
+  const [wishesList, setWishesList] = useState<WishItem[]>([]);
 
   const rawNames = data.clientName ? data.clientName.split(/&|dan/i) : [];
   const groomFirst = data.groomName 
@@ -125,8 +122,35 @@ export default function Template1({ data }: TemplateProps) {
   
   const monogramText = data.monogram || `${groomFirst.charAt(0)}${brideFirst.charAt(0)}`;
 
+  const tempGalleryImages = [
+    data.groomPhoto || ASSETS.defaultGroomPhoto,
+    data.bridePhoto || ASSETS.defaultBridePhoto,
+    data.bridePhoto || ASSETS.defaultBridePhoto,
+    data.groomPhoto || ASSETS.defaultGroomPhoto,
+    data.bridePhoto || ASSETS.defaultBridePhoto,
+    data.groomPhoto || ASSETS.defaultGroomPhoto,
+  ];
+
+  const defaultAddress = "Kp. Bojong Kaum, Rt. 01/02 Ds. Bojong Kec. Kemang Kab. Bogor kode pos 16310 (Rumah Ustd Yeyep)";
+
+  // Fungsi Fetch Database
+  const fetchWishes = async () => {
+    try {
+      const res = await fetch(`/api/wishes?clientName=${encodeURIComponent(data.clientName)}`);
+      if (res.ok) {
+        const fetchedData = await res.json();
+        setWishesList(fetchedData);
+      }
+    } catch (error) {
+      console.error("Gagal memuat ucapan:", error);
+    } finally {
+      setIsFetching(false);
+    }
+  };
+
   useEffect(() => {
     setIsMounted(true);
+    fetchWishes(); // Eksekusi Fetch saat komponen load
 
     const targetDate = new Date(data.weddingDate).getTime() || new Date('2027-11-27T10:00:00').getTime();
 
@@ -145,7 +169,7 @@ export default function Template1({ data }: TemplateProps) {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [data.weddingDate]);
+  }, [data.weddingDate, data.clientName]);
 
   const handleOpenInvitation = () => {
     setIsOpen(true);
@@ -170,34 +194,48 @@ export default function Template1({ data }: TemplateProps) {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Fungsi Submit Database
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name) {
-      if (formData.message) {
-        setWishesList([
-          { 
-            name: formData.name, 
-            address: formData.address || 'Tamu Undangan', 
-            attendance: formData.attendance,
-            message: formData.message 
-          }, 
-          ...wishesList
-        ]);
+    if (!formData.name || !formData.message) return;
+
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/wishes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          clientName: data.clientName,
+          name: formData.name,
+          attendance: formData.attendance,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        const newWish = await response.json();
+        setWishesList([newWish, ...wishesList]); // Update List UI otomatis
+        alert(`Terima kasih ${formData.name}, konfirmasi kehadiran & ucapan Anda telah terkirim!`);
+        setFormData({ name: '', phone: '', guests: 1, attendance: 'Hadir', address: '', message: '' });
+      } else {
+        alert("Terjadi kesalahan saat mengirim ucapan.");
       }
-      alert(`Terima kasih ${formData.name}, konfirmasi kehadiran & ucapan Anda telah terkirim!`);
-      setFormData({ name: '', phone: '', guests: 1, attendance: 'Hadir', address: '', message: '' });
+    } catch (error) {
+      alert("Gagal terhubung ke server.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
-    alert(`Nomor Rekening ${label} (${text}) berhasil disalin!`);
+    alert(`${label} berhasil disalin!`);
   };
 
   return (
     <div className="min-h-screen bg-[#4d0a13] text-white font-sans antialiased overflow-x-hidden selection:bg-amber-500 selection:text-black">
       
-      {/* AUDIO ELEMENT: TEMAN HIDUP BY TULUS */}
       <audio 
         ref={audioRef} 
         src={data.audioUrl || ASSETS.defaultMusic} 
@@ -225,7 +263,6 @@ export default function Template1({ data }: TemplateProps) {
         }
       `}</style>
 
-      {/* FLOATING MUSIC DISC BUTTON */}
       {isOpen && (
         <motion.button
           initial={{ scale: 0, opacity: 0 }}
@@ -233,7 +270,7 @@ export default function Template1({ data }: TemplateProps) {
           transition={{ duration: 0.5 }}
           onClick={toggleMusic}
           className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-[#3f070e]/90 hover:bg-[#2e040a] text-amber-200 border-2 border-amber-400/60 rounded-full shadow-2xl flex items-center justify-center backdrop-blur-md cursor-pointer group"
-          title={isPlaying ? "Matikan Musik (Tulus - Teman Hidup)" : "Putar Musik (Tulus - Teman Hidup)"}
+          title={isPlaying ? "Matikan Musik" : "Putar Musik"}
         >
           <span className={`text-lg transition-transform duration-700 ${isPlaying ? 'animate-spin' : ''}`}>
             🎵
@@ -244,7 +281,6 @@ export default function Template1({ data }: TemplateProps) {
         </motion.button>
       )}
 
-      {/* 1. COVER DEPAN */}
       <AnimatePresence>
         {!isOpen && (
           <motion.div 
@@ -294,7 +330,7 @@ export default function Template1({ data }: TemplateProps) {
               <div className="space-y-1 pt-1 text-stone-200 drop-shadow">
                 <p className="text-xs font-semibold">{data.eventName || 'Resepsi Nikah'}</p>
                 <p className="text-xs font-medium">{data.weddingDate || '06 September 2026'}</p>
-                <p className="text-xs font-medium text-stone-300">{data.eventTime || '10:00-13:00'}</p>
+                <p className="text-xs font-medium text-stone-300">{data.eventTime || '10:00 - Selesai'}</p>
               </div>
 
               <div className="pt-4">
@@ -310,7 +346,6 @@ export default function Template1({ data }: TemplateProps) {
               </div>
             </div>
 
-            {/* RUMAH LIMAS & BUNGA BERVARIASI */}
             <div className="relative w-full h-80 z-20 overflow-hidden mt-auto pointer-events-none">
               <img 
                 src={ASSETS.rumahLimas} 
@@ -336,7 +371,6 @@ export default function Template1({ data }: TemplateProps) {
         )}
       </AnimatePresence>
 
-      {/* 2. HERO UTAMA SAAT DIBUKA */}
       <main className={`max-w-md mx-auto bg-[#4d0a13] min-h-screen relative shadow-2xl border-x border-amber-900/30 font-body-wedding ${!isOpen ? 'hidden' : 'block'}`}>
 
         <section className="fixed-layout relative min-h-screen flex flex-col justify-between items-center text-center overflow-hidden border-b border-amber-500/20">
@@ -416,8 +450,7 @@ export default function Template1({ data }: TemplateProps) {
 
         </section>
 
-        {/* 3. PROFIL DETAIL MEMPELAI */}
-        <section className="relative w-full max-w-md mx-auto bg-[#641823] text-white overflow-hidden py-10 font-sans">
+        <section className="relative w-full max-w-md mx-auto bg-[#641823] text-white overflow-hidden py-12 font-sans">
           
           <div 
             className="absolute inset-0 bg-repeat opacity-25 pointer-events-none z-0" 
@@ -432,6 +465,52 @@ export default function Template1({ data }: TemplateProps) {
 
           <div className="relative z-10 px-6 pt-16 pb-12 space-y-16 text-center">
             
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{ once: true }} 
+              variants={fadeInUp} 
+              className="relative py-6 px-4 text-center border-b border-amber-400/20"
+            >
+              <motion.img 
+                src={ASSETS.buketBunga}
+                alt="Buket Bunga Kiri" 
+                className="absolute -left-20 sm:-left-24 top-1/2 -translate-y-1/2 w-40 sm:w-48 h-auto object-contain pointer-events-none z-0 opacity-90 origin-bottom-left" 
+                animate={{ 
+                  rotate: [0, 6, -3, 8, 0],
+                  x: [-15, 5, -5, 8, -15],
+                  y: [0, -6, 2, -4, 0],
+                  scale: [1, 1.03, 0.98, 1.02, 1]
+                }} 
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              <motion.img 
+                src={ASSETS.buketBunga}
+                alt="Buket Bunga Kanan" 
+                className="absolute -right-20 sm:-right-24 top-1/2 -translate-y-1/2 w-40 sm:w-48 h-auto object-contain pointer-events-none z-0 opacity-90 origin-bottom-right" 
+                initial={{ scaleX: -1 }}
+                animate={{ 
+                  rotate: [0, -6, 3, -8, 0],
+                  x: [15, -5, 5, -8, 15],
+                  y: [0, -5, 3, -6, 0], 
+                  scaleX: -1,
+                  scaleY: [1, 1.03, 0.98, 1.02, 1]
+                }} 
+                transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+              />
+
+              <div className="relative z-10 max-w-[260px] sm:max-w-xs mx-auto space-y-4">
+                <h2 className="font-serif-wedding text-3xl sm:text-4xl font-normal text-amber-200 tracking-wide drop-shadow">
+                  Mukadimah
+                </h2>
+
+                <p className="text-xs sm:text-xs text-stone-100 font-light leading-relaxed tracking-wide text-center drop-shadow-sm">
+                  Cinta mempertemukan kami, kepercayaan menguatkan kami, dan komitmen menjadi alasan kami melangkah bersama. Pernikahan bukan sekadar mengucapkan janji, tetapi tentang memilih satu sama lain setiap hari dalam suka maupun duka. Dengan kebersamaan, ketulusan, dan keyakinan, kami memulai perjalanan baru sebagai satu keluarga.
+                </p>
+              </div>
+            </motion.div>
+
             {/* MEMPELAI PRIA */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="space-y-4">
               <div className="w-[78%] mx-auto aspect-[3/4] bg-[#52121c] p-1.5 rounded-sm shadow-2xl border border-amber-300/40 overflow-hidden relative">
@@ -448,7 +527,7 @@ export default function Template1({ data }: TemplateProps) {
                 </h2>
 
                 <p className="text-xs text-stone-200/90 font-light max-w-xs mx-auto pt-1 leading-relaxed">
-                  {data.groomParents || 'Putra ke-4 dari Bapak Ustad Yeyep Abu Bakar Soleh dan Ibu Rohimah'}
+                  {data.groomParents || 'Putra ke-4 ( bungsu ) dari Bapak Ustad Yeyep Abu Bakar Soleh dan Ibu Rohimah'}
                 </p>
               </div>
 
@@ -548,49 +627,136 @@ export default function Template1({ data }: TemplateProps) {
         </section>
 
         {/* 5. ACARA & LOKASI */}
-        <section className="px-6 py-16 text-center space-y-8 relative overflow-hidden bg-gradient-to-b from-[#4d0a13] to-[#3a060d]">
-          <img 
-            src={ASSETS.mountainBg} 
-            alt="Mountain Background" 
-            className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none" 
+        <section className="relative w-full max-w-md mx-auto py-24 px-6 text-center overflow-hidden bg-[#3a060d] z-0">
+          
+          <div 
+            className="absolute inset-0 bg-repeat opacity-[0.15] pointer-events-none z-0" 
+            style={{ backgroundImage: `url(${ASSETS.rosePatternBg})`, backgroundSize: '180px' }} 
           />
-          <img 
-            src={ASSETS.rumahLimas} 
-            alt="Rumah Limas" 
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[120%] max-w-none opacity-25 pointer-events-none" 
-          />
+          
+          <img src={ASSETS.pucukRebungTop} alt="Ornamen Atas" className="absolute top-0 inset-x-0 w-full object-contain opacity-80 pointer-events-none z-10" />
+          <img src={ASSETS.pucukRebungBottom} alt="Ornamen Bawah" className="absolute bottom-0 inset-x-0 w-full object-contain opacity-80 pointer-events-none z-10" />
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="space-y-3 relative z-10">
-            <h2 className="font-wedding-title text-5xl text-amber-200">Acara & Lokasi</h2>
-            <p className="text-xs text-stone-300">Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
-          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer} className="relative z-20 space-y-10 pt-4">
+            
+            <motion.div 
+              variants={fadeInUp} 
+              className="relative bg-[#3f070e] rounded-t-[140px] rounded-b-3xl border border-amber-500/40 p-[5px] shadow-2xl mx-auto max-w-[320px]"
+            >
+              <div className="border border-amber-500/30 rounded-t-[140px] rounded-b-3xl px-6 pt-16 pb-12 flex flex-col items-center space-y-7 relative overflow-hidden bg-[#4d0a13]">
+                
+                <div className="absolute top-0 left-0 w-full h-32 opacity-20 pointer-events-none bg-gradient-to-b from-black/50 to-transparent"></div>
+                
+                <div className="space-y-2 z-10">
+                  <span className="font-cinzel text-amber-400 font-bold text-sm tracking-[0.2em] uppercase drop-shadow-md">
+                    {data.eventName || 'Resepsi Nikah'}
+                  </span>
+                  <div className="w-20 h-[1px] bg-amber-400/60 mx-auto"></div>
+                </div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="space-y-6 relative z-10">
-            <motion.div variants={fadeInUp} className="bg-[#4d0a13]/90 p-6 rounded-3xl border border-amber-500/30 text-left space-y-2 backdrop-blur-sm shadow-xl">
-              <div className="text-amber-400 font-bold text-sm uppercase tracking-wider font-cinzel">
-                {data.eventName || 'Resepsi Nikah'}
-              </div>
-              <p className="text-xs text-stone-300">{data.weddingDate}</p>
-              <p className="text-xs font-semibold text-white">{data.eventTime || '10:00 WIB - Selesai'}</p>
-              <div className="pt-2 text-xs text-stone-300">
-                <strong className="text-amber-200">{data.location || 'Kediaman Mempelai Pria'}</strong><br />
-                {data.address || 'Kota BNI, Jl. Jend. Sudirman No. Kav 1, Tanah Abang, Jakarta Pusat'}
+                <div className="space-y-5 z-10 w-full">
+                  <div className="font-serif-wedding text-[26px] leading-tight text-white tracking-wide drop-shadow-md px-2">
+                    {data.weddingDate || 'Minggu, 06 September\n2026'}
+                  </div>
+                  <div className="inline-flex items-center justify-center gap-2 bg-[#2a0307] px-6 py-2.5 rounded-full border border-amber-500/10 text-amber-300 text-[11px] font-bold tracking-widest shadow-inner">
+                    {data.eventTime || '10:00 WIB - Selesai'}
+                  </div>
+                </div>
+
+                <div className="w-full flex items-center justify-center gap-4 opacity-90 py-1 z-10">
+                  <div className="h-[1px] w-14 bg-amber-500/40"></div>
+                  <span className="text-amber-400 text-lg">❦</span>
+                  <div className="h-[1px] w-14 bg-amber-500/40"></div>
+                </div>
+
+                <div className="space-y-3 z-10">
+                  <h3 className="font-serif-wedding text-[22px] font-bold text-amber-400 drop-shadow-md">
+                    {data.location || 'Kediaman Mempelai Pria'}
+                  </h3>
+                  <p className="text-[11.5px] text-stone-200/90 leading-relaxed max-w-[250px] mx-auto">
+                    {data.address || defaultAddress}
+                  </p>
+                </div>
+
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://maps.app.goo.gl/cGiXjHXsbDug16q57"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 bg-[#eab308] hover:bg-[#ca8a04] text-[#3f070e] font-black py-3.5 px-8 rounded-full text-[10px] uppercase tracking-widest shadow-[0_0_15px_rgba(234,179,8,0.4)] transition-all cursor-pointer z-10 border border-amber-300/50"
+                >
+                  <span>📍 Lihat Peta Lokasi</span>
+                </motion.a>
+
               </div>
             </motion.div>
-
-            <motion.a
-              variants={fadeInUp}
-              href="https://maps.google.com"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-block bg-[#851824] hover:bg-[#641823] text-amber-200 font-bold py-3 px-8 rounded-full text-xs uppercase tracking-wider transition-all duration-300 shadow-lg border border-amber-400/40"
-            >
-              📍 Buka Google Maps
-            </motion.a>
+            
           </motion.div>
         </section>
 
-        {/* 6. GABUNGAN: RSVP & UCAPAN DOA */}
+        {/* 6. SECTION: OUR STORY */}
+        <section className="relative px-6 py-24 bg-gradient-to-b from-[#3a060d] to-[#4d0a13] text-center overflow-hidden border-t border-amber-500/20">
+          
+          <img src={ASSETS.roseGif} alt="Rose Left" className="absolute -left-12 top-10 w-40 h-40 opacity-70 pointer-events-none rotate-12 z-0" />
+          <img src={ASSETS.roseGif} alt="Rose Right" className="absolute -right-12 bottom-10 w-40 h-40 opacity-70 pointer-events-none transform scale-x-[-1] -rotate-12 z-0" />
+          
+          <img src={ASSETS.lotusGif} alt="Lotus Top" className="absolute left-1/2 -translate-x-1/2 -top-12 w-48 h-48 opacity-40 pointer-events-none z-0" />
+
+          <motion.div 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }} 
+            variants={fadeInUp} 
+            className="space-y-6 relative z-10 bg-[#641823]/60 backdrop-blur-md p-8 rounded-3xl border border-amber-500/30 max-w-sm mx-auto shadow-2xl"
+          >
+            <div className="space-y-2">
+              <h2 className="font-wedding-title text-5xl text-amber-300 drop-shadow-lg">Our Story</h2>
+              <div className="w-12 h-[1px] bg-amber-400/50 mx-auto"></div>
+            </div>
+            
+            <p className="text-[11px] text-stone-200/95 leading-relaxed text-center font-light drop-shadow-sm">
+              Berawal dari perjumpaan yang sederhana, kami tak pernah menyangka bahwa takdir akan mengikat hati kami begitu kuat. Setiap tawa, setiap ujian, dan setiap momen yang kami lalui bersama telah menumbuhkan keyakinan bahwa kami diciptakan untuk saling melengkapi. Kini, dengan restu keluarga dan doa dari orang-orang tersayang, kami siap melangkah ke pelaminan, memulai lembaran baru dalam ikatan suci pernikahan yang kekal abadi.
+            </p>
+          </motion.div>
+        </section>
+
+        {/* 7. SECTION: GALLERY */}
+        <section className="relative px-4 pt-24 pb-36 bg-[#3a060d] text-center overflow-hidden border-t border-amber-500/20">
+          
+          <div 
+            className="absolute inset-0 bg-repeat opacity-[0.15] pointer-events-none z-0" 
+            style={{ backgroundImage: `url(${ASSETS.rosePatternBg})`, backgroundSize: '180px' }} 
+          />
+          
+          <img src={ASSETS.pucukRebungTop} alt="Ornamen Atas" className="absolute top-0 inset-x-0 w-full object-contain opacity-80 pointer-events-none z-10" />
+          <img src={ASSETS.pucukRebungBottom} alt="Ornamen Bawah" className="absolute bottom-0 inset-x-0 w-full object-contain opacity-80 pointer-events-none z-10" />
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="space-y-8 relative z-20">
+            <motion.div variants={fadeInUp} className="space-y-2">
+              <h2 className="font-wedding-title text-5xl text-amber-300 drop-shadow-lg">Galeri Momen</h2>
+              <p className="text-xs text-stone-300/90">Potret kebahagiaan kami dalam bingkai kenangan.</p>
+            </motion.div>
+
+            <div className="grid grid-cols-3 gap-1.5 max-w-[340px] mx-auto">
+              {tempGalleryImages.map((imgUrl, idx) => (
+                <motion.div 
+                  key={idx} 
+                  variants={fadeInUp}
+                  className="relative w-full aspect-[3/4] overflow-hidden rounded-xl shadow-md border border-amber-500/20"
+                >
+                  <img 
+                    src={imgUrl} 
+                    alt={`Galeri ${idx + 1}`} 
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+
+        {/* 8. GABUNGAN: RSVP & UCAPAN DOA */}
         <section className="px-6 py-16 bg-gradient-to-b from-[#3a060d] via-[#4d0a13] to-[#3a060d] border-t border-amber-500/20 relative overflow-hidden">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="space-y-8 relative z-10">
             <div className="text-center space-y-2">
@@ -599,6 +765,7 @@ export default function Template1({ data }: TemplateProps) {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4 max-w-sm mx-auto bg-[#3f070e]/60 backdrop-blur-md p-6 rounded-3xl border border-amber-500/30 shadow-2xl">
+              
               <div>
                 <label className="block text-[11px] text-amber-200 mb-1 text-left">Nama Lengkap *</label>
                 <input
@@ -611,53 +778,17 @@ export default function Template1({ data }: TemplateProps) {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-[11px] text-amber-200 mb-1 text-left">Nomor WhatsApp</label>
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="0812xxxx"
-                    className="w-full bg-[#641823]/90 border border-amber-500/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-stone-400 focus:outline-none focus:border-amber-400"
-                  />
-                </div>
-                <div>
-                  <label className="block text-[11px] text-amber-200 mb-1 text-left">Kota / Alamat</label>
-                  <input
-                    type="text"
-                    value={formData.address}
-                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    placeholder="Contoh: Jakarta"
-                    className="w-full bg-[#641823]/90 border border-amber-500/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-stone-400 focus:outline-none focus:border-amber-400"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-[11px] text-amber-200 mb-1 text-left">Konfirmasi Kehadiran</label>
-                  <select
-                    value={formData.attendance}
-                    onChange={(e) => setFormData({ ...formData, attendance: e.target.value })}
-                    className="w-full bg-[#641823]/90 border border-amber-500/30 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
-                  >
-                    <option value="Hadir" className="bg-[#4d0a13]">Hadir</option>
-                    <option value="Tidak Hadir" className="bg-[#4d0a13]">Tidak Hadir</option>
-                    <option value="Ragu-Ragu" className="bg-[#4d0a13]">Ragu-Ragu</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-[11px] text-amber-200 mb-1 text-left">Jumlah Tamu</label>
-                  <input
-                    type="number"
-                    min="1"
-                    max="5"
-                    value={formData.guests}
-                    onChange={(e) => setFormData({ ...formData, guests: parseInt(e.target.value) || 1 })}
-                    className="w-full bg-[#641823]/90 border border-amber-500/30 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
-                  />
-                </div>
+              <div>
+                <label className="block text-[11px] text-amber-200 mb-1 text-left">Konfirmasi Kehadiran</label>
+                <select
+                  value={formData.attendance}
+                  onChange={(e) => setFormData({ ...formData, attendance: e.target.value })}
+                  className="w-full bg-[#641823]/90 border border-amber-500/30 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
+                >
+                  <option value="Hadir" className="bg-[#4d0a13]">Hadir</option>
+                  <option value="Tidak Hadir" className="bg-[#4d0a13]">Tidak Hadir</option>
+                  <option value="Ragu-Ragu" className="bg-[#4d0a13]">Ragu-Ragu</option>
+                </select>
               </div>
 
               <div>
@@ -675,38 +806,44 @@ export default function Template1({ data }: TemplateProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-[#851824] hover:bg-[#641823] border border-amber-400/40 text-amber-200 font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition-colors shadow-lg cursor-pointer"
+                disabled={isLoading}
+                className="w-full bg-[#851824] hover:bg-[#641823] disabled:opacity-50 border border-amber-400/40 text-amber-200 font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition-colors shadow-lg cursor-pointer"
               >
-                Kirim Konfirmasi & Ucapan
+                {isLoading ? 'Mengirim...' : 'Kirim Konfirmasi & Ucapan'}
               </motion.button>
             </form>
 
             <div className="space-y-3 max-w-sm mx-auto max-h-72 overflow-y-auto pr-1 pt-2">
-              {wishesList.map((item, idx) => (
-                <div key={idx} className="bg-[#641823] p-3.5 rounded-2xl border border-amber-500/20 text-left space-y-1 shadow-md">
-                  <div className="flex justify-between items-center border-b border-amber-500/10 pb-1.5">
-                    <span className="font-bold text-xs text-amber-300">{item.name}</span>
-                    <div className="flex items-center gap-1.5">
-                      <span className={`text-[9px] px-2 py-0.5 rounded-full font-semibold ${item.attendance === 'Hadir' ? 'bg-emerald-900/80 text-emerald-200 border border-emerald-500/30' : 'bg-stone-800 text-stone-300'}`}>
-                        {item.attendance}
-                      </span>
-                      {item.address && <span className="text-[10px] text-stone-400">&bull; {item.address}</span>}
+              {isFetching ? (
+                <p className="text-xs text-amber-200 text-center animate-pulse py-4">Memuat ucapan dan doa...</p>
+              ) : wishesList.length === 0 ? (
+                <p className="text-xs text-stone-300 text-center py-4">Belum ada ucapan. Jadilah yang pertama memberikan doa restu!</p>
+              ) : (
+                wishesList.map((item, idx) => (
+                  <div key={idx} className="bg-[#641823] p-3.5 rounded-2xl border border-amber-500/20 text-left space-y-1 shadow-md">
+                    <div className="flex justify-between items-center border-b border-amber-500/10 pb-1.5">
+                      <span className="font-bold text-xs text-amber-300">{item.name}</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className={`text-[9px] px-2 py-0.5 rounded-full font-semibold ${item.attendance === 'Hadir' ? 'bg-emerald-900/80 text-emerald-200 border border-emerald-500/30' : 'bg-stone-800 text-stone-300'}`}>
+                          {item.attendance}
+                        </span>
+                      </div>
                     </div>
+                    <p className="text-xs text-stone-200 leading-relaxed pt-1 whitespace-pre-wrap">{item.message}</p>
                   </div>
-                  <p className="text-xs text-stone-200 leading-relaxed pt-1">{item.message}</p>
-                </div>
-              ))}
+                ))
+              )}
             </div>
           </motion.div>
         </section>
 
-        {/* 7. DIGITAL GIFT */}
+        {/* 9. DIGITAL GIFT & PHYSICAL GIFT */}
         <section className="px-6 py-16 text-center space-y-6 relative overflow-hidden bg-[#3a060d]">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="space-y-6 relative z-10">
             <div className="space-y-2">
-              <h2 className="font-wedding-title text-5xl text-amber-200">Hadiah Digital</h2>
+              <h2 className="font-wedding-title text-5xl text-amber-200">Kirim Hadiah</h2>
               <p className="text-xs text-stone-300 leading-relaxed max-w-xs mx-auto">
-                Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika ingin memberikan tanda kasih, Anda dapat menyalurkannya melalui:
+                Doa restu Anda merupakan karunia yang sangat berarti. Namun jika Anda ingin memberikan tanda kasih, Anda dapat menyalurkannya melalui:
               </p>
             </div>
 
@@ -715,13 +852,15 @@ export default function Template1({ data }: TemplateProps) {
               {/* REKENING BCA MEMPELAI PRIA */}
               <div className="bg-[#4d0a13] p-6 rounded-3xl border border-amber-500/30 space-y-4 text-left shadow-2xl relative">
                 <div className="flex justify-between items-center">
-                  <span className="font-black text-xl tracking-widest text-blue-400">BCA</span>
+                  <div className="bg-white/90 p-1.5 rounded-md shadow-sm flex items-center justify-center">
+                    <img src={ASSETS.bcaLogo} alt="BCA" className="h-4 object-contain" />
+                  </div>
                   <span className="text-[10px] bg-amber-500/20 text-amber-300 border border-amber-400/30 px-2.5 py-1 rounded-full font-semibold">
                     Bank Transfer
                   </span>
                 </div>
                 <div>
-                  <p className="text-[11px] text-stone-400 uppercase tracking-wider">Pengantin </p>
+                  <p className="text-[11px] text-stone-400 uppercase tracking-wider">Pengantin</p>
                   <p className="font-mono text-lg font-bold text-amber-200 tracking-wider pt-0.5">
                     {data.groomBankNumber || '7005805091'}
                   </p>
@@ -730,7 +869,7 @@ export default function Template1({ data }: TemplateProps) {
                   </p>
                 </div>
                 <button
-                  onClick={() => copyToClipboard(data.groomBankNumber || '7005805091', `BCA`)}
+                  onClick={() => copyToClipboard(data.groomBankNumber || '7005805091', `Rekening Pengantin Pria`)}
                   className="w-full bg-[#641823] hover:bg-[#851824] border border-amber-400/40 text-amber-200 text-xs font-bold py-2.5 rounded-xl transition-colors text-center shadow-md cursor-pointer"
                 >
                   📋 Salin Rekening 
@@ -740,7 +879,9 @@ export default function Template1({ data }: TemplateProps) {
               {/* REKENING BCA MEMPELAI WANITA */}
               <div className="bg-[#4d0a13] p-6 rounded-3xl border border-amber-500/30 space-y-4 text-left shadow-2xl relative">
                 <div className="flex justify-between items-center">
-                  <span className="font-black text-xl tracking-widest text-blue-400">BCA</span>
+                  <div className="bg-white/90 p-1.5 rounded-md shadow-sm flex items-center justify-center">
+                    <img src={ASSETS.bcaLogo} alt="BCA" className="h-4 object-contain" />
+                  </div>
                   <span className="text-[10px] bg-amber-500/20 text-amber-300 border border-amber-400/30 px-2.5 py-1 rounded-full font-semibold">
                     Bank Transfer
                   </span>
@@ -755,10 +896,34 @@ export default function Template1({ data }: TemplateProps) {
                   </p>
                 </div>
                 <button
-                  onClick={() => copyToClipboard(data.brideBankNumber || '7005245265', `BCA`)}
+                  onClick={() => copyToClipboard(data.brideBankNumber || '7005245265', `Rekening Pengantin Wanita`)}
                   className="w-full bg-[#641823] hover:bg-[#851824] border border-amber-400/40 text-amber-200 text-xs font-bold py-2.5 rounded-xl transition-colors text-center shadow-md cursor-pointer"
                 >
                   📋 Salin Rekening 
+                </button>
+              </div>
+
+              {/* KIRIM HADIAH FISIK (ALAMAT) */}
+              <div className="bg-[#4d0a13] p-6 rounded-3xl border border-amber-500/30 space-y-4 text-left shadow-2xl relative">
+                <div className="flex justify-between items-center">
+                  <span className="font-black text-lg tracking-wide text-amber-300 drop-shadow-md">
+                    Hadiah Fisik
+                  </span>
+                  <span className="text-[10px] bg-amber-500/20 text-amber-300 border border-amber-400/30 px-2.5 py-1 rounded-full font-semibold">
+                    Alamat Rumah
+                  </span>
+                </div>
+                <div>
+                  <p className="text-[11px] text-stone-400 uppercase tracking-wider mb-1">Kirim Ke Alamat:</p>
+                  <p className="text-xs text-stone-200 leading-relaxed">
+                    {data.giftAddress || defaultAddress}
+                  </p>
+                </div>
+                <button
+                  onClick={() => copyToClipboard(data.giftAddress || defaultAddress, `Alamat Pengiriman`)}
+                  className="w-full bg-[#641823] hover:bg-[#851824] border border-amber-400/40 text-amber-200 text-xs font-bold py-2.5 rounded-xl transition-colors text-center shadow-md cursor-pointer"
+                >
+                  📍 Salin Alamat
                 </button>
               </div>
 
