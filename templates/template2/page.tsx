@@ -291,6 +291,7 @@ export default function Template1({ data }: TemplateProps) {
         </motion.button>
       )}
 
+      {/* COVER OVERLAY */}
       <AnimatePresence>
         {!isOpen && (
           <motion.div 
@@ -299,7 +300,7 @@ export default function Template1({ data }: TemplateProps) {
             exit={{ y: '-100%', transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] } }}
             className="fixed inset-0 z-50 max-w-md mx-auto min-h-screen flex flex-col justify-between items-center bg-[#4d0a13] overflow-hidden text-center shadow-2xl font-body-wedding border-x border-amber-900/40"
           >
-            {/* Background menggunakan foto3 dengan penggelapan agar teks kontras */}
+            {/* Background foto3 */}
             <div 
               className="absolute inset-0 bg-cover bg-center z-0 filter brightness-[0.65]" 
               style={{ backgroundImage: `url(${ASSETS.foto3})` }} 
@@ -314,7 +315,7 @@ export default function Template1({ data }: TemplateProps) {
               </div>
             </div>
 
-            {/* Kontainer Polosan tanpa Shape Rumah */}
+            {/* Kontainer Polosan Nama Mempelai */}
             <div className="relative z-10 w-full px-6 flex flex-col items-center justify-center flex-grow space-y-4">
               
               <div className="space-y-1 text-center">
@@ -327,7 +328,9 @@ export default function Template1({ data }: TemplateProps) {
                 </h1>
               </div>
 
-              
+              <p className="text-xs text-stone-200 font-medium tracking-wide pt-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                We're getting married
+              </p>
 
               <div className="pt-6 pb-2 w-full max-w-[240px] text-center">
                 <p className="text-[11px] text-stone-300 font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mb-1">
@@ -363,6 +366,7 @@ export default function Template1({ data }: TemplateProps) {
 
       <main className={`max-w-md mx-auto bg-[#4d0a13] min-h-screen relative shadow-2xl border-x border-amber-900/30 font-body-wedding ${!isOpen ? 'hidden' : 'block'}`}>
 
+        {/* SECTION 1: HERO / HEADER */}
         <section className="fixed-layout relative min-h-screen flex flex-col justify-between items-center text-center overflow-hidden border-b border-amber-500/20">
           
           <div 
@@ -411,8 +415,6 @@ export default function Template1({ data }: TemplateProps) {
                 {brideFirst}
               </h1>
             </div>
-
-           
           </div>
 
           <div className="relative w-full h-80 z-20 overflow-hidden mt-auto pointer-events-none">
@@ -438,6 +440,7 @@ export default function Template1({ data }: TemplateProps) {
 
         </section>
 
+        {/* SECTION 2: MUKADIMAH & MEMPELAI */}
         <section className="relative w-full max-w-md mx-auto bg-[#641823] text-white overflow-hidden py-12 font-sans">
           
           <div 
@@ -567,7 +570,7 @@ export default function Template1({ data }: TemplateProps) {
 
         </section>
 
-        {/* 4. COUNTDOWN TIMER */}
+        {/* SECTION 3: COUNTDOWN TIMER */}
         <section className="px-6 py-14 text-center relative overflow-hidden bg-[#4d0a13]">
           
           <div 
@@ -614,7 +617,7 @@ export default function Template1({ data }: TemplateProps) {
           </motion.div>
         </section>
 
-        {/* 5. ACARA & LOKASI */}
+        {/* SECTION 4: ACARA & LOKASI */}
         <section className="relative w-full max-w-md mx-auto py-24 px-6 text-center overflow-hidden bg-[#3a060d] z-0">
           
           <div 
@@ -684,7 +687,7 @@ export default function Template1({ data }: TemplateProps) {
           </motion.div>
         </section>
 
-        {/* 6. SECTION: OUR STORY */}
+        {/* SECTION 5: OUR STORY */}
         <section className="relative px-6 py-24 bg-gradient-to-b from-[#3a060d] to-[#4d0a13] text-center overflow-hidden border-t border-amber-500/20">
           
           <img src={ASSETS.roseGif} alt="Rose Left" className="absolute -left-12 top-10 w-40 h-40 opacity-70 pointer-events-none rotate-12 z-0" />
@@ -710,7 +713,7 @@ export default function Template1({ data }: TemplateProps) {
           </motion.div>
         </section>
 
-        {/* 7. SECTION: GALLERY */}
+        {/* SECTION 6: GALLERY */}
         <section className="relative px-4 pt-24 pb-36 bg-[#3a060d] text-center overflow-hidden border-t border-amber-500/20">
           
           <div 
@@ -723,7 +726,7 @@ export default function Template1({ data }: TemplateProps) {
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="space-y-8 relative z-20">
             <motion.div variants={fadeInUp} className="space-y-2">
-              <h2 className="font-wedding-title text-5xl text-amber-300 drop-shadow-lg">Galeri Momen</h2>
+              <h2 className="font-wedding-title text-5xl text-amber-300 drop-shadow-lg pt-8">Galeri Momen</h2>
               <p className="text-xs text-stone-300/90">Potret kebahagiaan kami dalam bingkai kenangan.</p>
             </motion.div>
 
@@ -745,11 +748,11 @@ export default function Template1({ data }: TemplateProps) {
           </motion.div>
         </section>
 
-        {/* 8. GABUNGAN: RSVP & UCAPAN DOA */}
+        {/* SECTION 7: RSVP & UCAPAN DOA */}
         <section className="px-6 py-16 bg-gradient-to-b from-[#3a060d] via-[#4d0a13] to-[#3a060d] border-t border-amber-500/20 relative overflow-hidden">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="space-y-8 relative z-10">
             <div className="text-center space-y-2">
-              <h2 className="font-wedding-title text-5xl text-amber-200">Kehadiran & Doa Restu</h2>
+              <h2 className="font-wedding-title text-4xl text-amber-200">Kehadiran & Doa Restu</h2>
               <p className="text-xs text-stone-300">Mohon konfirmasi kehadiran dan berikan ucapan doa restu Anda.</p>
             </div>
 
@@ -826,7 +829,7 @@ export default function Template1({ data }: TemplateProps) {
           </motion.div>
         </section>
 
-        {/* 9. DIGITAL GIFT & PHYSICAL GIFT */}
+        {/* SECTION 8: DIGITAL GIFT & PHYSICAL GIFT */}
         <section className="px-6 py-16 text-center space-y-6 relative overflow-hidden bg-[#3a060d]">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="space-y-6 relative z-10">
             <div className="space-y-2">
@@ -920,29 +923,35 @@ export default function Template1({ data }: TemplateProps) {
           </motion.div>
         </section>
 
-        {/* FOOTER */}
-      <footer className="px-6 pt-25 pb-12 text-center border-t border-amber-500/20 text-xs text-stone-300 space-y-4 relative overflow-hidden bg-[#2c0409]">
-          <img src={ASSETS.pucukRebungTop} alt="Footer Border" className="absolute top-0 inset-x-0 w-full opacity-30 transform rotate-180 pointer-events-none" />
+        {/* SECTION 9: FOOTER DI-PERBAIKI */}
+        <footer className="px-6 pt-24 pb-14 text-center border-t border-amber-500/20 text-xs text-stone-300 space-y-6 relative overflow-hidden bg-[#2c0409]">
+          <img src={ASSETS.pucukRebungTop} alt="Footer Border" className="absolute top-0 inset-x-0 w-full opacity-40 transform rotate-180 pointer-events-none" />
           
-          <div className="relative z-10 max-w-xs mx-auto space-y-3">
-            <p className="font-light leading-relaxed text-stone-200">
-              <p className="font-wedding-title text-6xl text-amber-200 drop-shadow-md py-1">
-              Terima kasih 
-            </p>
-              Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.
-            </p>
+          <div className="relative z-10 max-w-xs mx-auto space-y-6">
             
-            <p className="text-[10px] uppercase tracking-widest  font-semibold pt-2">
-              Kami yang berbahagia
-            </p>
+            {/* Teks Ucapan Terima Kasih dalam Kotak Kartu Elegan agar Tidak Menabrak Batik */}
+            <div className=" pt-10 space-y-3">
+              <h3 className="font-wedding-title text-5xl text-amber-200 drop-shadow-md">
+                Terima kasih
+              </h3>
+              <p className="font-light leading-relaxed text-stone-200 text-xs">
+                Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.
+              </p>
+            </div>
             
-            <p className="font-wedding-title text-4xl text-amber-200 drop-shadow-md py-1">
-              Mustopa <br /> & <br /> Firsta
-            </p>
+            <div className="space-y-2 pt-2">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-amber-300/90 font-bold">
+                Kami yang berbahagia
+              </p>
+              
+              <p className="font-wedding-title text-4xl sm:text-5xl text-amber-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] py-1 leading-snug">
+                Mustopa <br /> & <br /> Firsta
+              </p>
+            </div>
           </div>
 
-          <div className="pt-4 relative z-10 border-t border-amber-500/10">
-            <p className="text-[9px] opacity-60">Crafted with ❤️ by Amarayya Invitation</p>
+          <div className="pt-6 relative z-10 border-t border-amber-500/10">
+            <p className="text-[9px] opacity-60 tracking-wider">Crafted with ❤️ by Amarayya Invitation</p>
           </div>
         </footer>
 
