@@ -4,1903 +4,700 @@
 
 __turbopack_context__.s([
     "default",
-    ()=>LandingPage
+    ()=>Home
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$site$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/site.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui.tsx [app-client] (ecmascript)");
 'use client';
 ;
 ;
 ;
 ;
-// Tambahkan annotation : Variants di sini
-const fadeInUp = {
-    hidden: {
-        opacity: 0,
-        y: 30
-    },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.6,
-            ease: 'easeOut'
-        }
-    }
-};
-const staggerContainer = {
-    hidden: {
-        opacity: 0
-    },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.15
-        }
-    }
-};
-function LandingPage() {
-    const templates = [
-        {
-            id: 'template1',
-            name: 'Template 1 (Javanese Royal Modern)',
-            desc: 'Sentuhan sakral adat Jawa berpadu harmoni dengan kemewahan aksen emas dan latar maroon yang agung.',
-            demoSlug: 'budi-dan-ani',
-            badge: 'Terpopuler',
-            emoji: '👑',
-            accentColor: 'from-amber-600 to-amber-800'
+;
+/* Satu frame di strip hero. Ganti <div> gradasi dengan <Image /> milikmu. */ function Frame({ caption, tone, delay }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].figure, {
+        initial: {
+            opacity: 0,
+            scale: 0.94
         },
-        {
-            id: 'template2',
-            name: 'Template 2 (Modern Minimalist)',
-            desc: 'Estetika bersih dengan permainan tipografi romantis, transisi anggun, dan fokus pada momen berharga Anda.',
-            demoSlug: 'clara-dan-david',
-            badge: 'Terbaru',
-            emoji: '✨',
-            accentColor: 'from-rose-700 to-red-900'
-        }
-    ];
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "jsx-372dae523c11618e" + " " + "min-h-screen bg-white text-slate-800 antialiased font-sans selection:bg-rose-900 selection:text-white overflow-x-hidden",
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].header, {
-                initial: {
-                    y: -50,
-                    opacity: 0
-                },
-                animate: {
-                    y: 0,
-                    opacity: 1
-                },
-                transition: {
-                    duration: 0.5
-                },
-                className: "sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-stone-200/60 shadow-sm shadow-stone-100/40",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "jsx-372dae523c11618e" + " " + "max-w-7xl mx-auto px-6 h-20 flex items-center justify-between",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-372dae523c11618e" + " " + "text-2xl font-black text-rose-950 tracking-tight group cursor-pointer",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "jsx-372dae523c11618e" + " " + "bg-gradient-to-r from-rose-900 to-red-700 bg-clip-text text-transparent transition-all duration-300 group-hover:from-red-700 group-hover:to-rose-900",
-                                    children: "Amarayya"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 67,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "jsx-372dae523c11618e" + " " + "text-slate-400 font-light text-xl",
-                                    children: ".inv"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 70,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/(main)/page.tsx",
-                            lineNumber: 66,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                            className: "jsx-372dae523c11618e" + " " + "hidden md:flex items-center space-x-8 text-sm font-semibold text-stone-600",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                    href: "#fitur",
-                                    className: "jsx-372dae523c11618e" + " " + "hover:text-rose-900 transition-colors",
-                                    children: "Products"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 74,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                    href: "#fitur",
-                                    className: "jsx-372dae523c11618e" + " " + "hover:text-rose-900 transition-colors",
-                                    children: "Solutions"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 75,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                    href: "#katalog",
-                                    className: "jsx-372dae523c11618e" + " " + "hover:text-rose-900 transition-colors",
-                                    children: "Katalog"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 76,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                    href: "#harga",
-                                    className: "jsx-372dae523c11618e" + " " + "hover:text-rose-900 transition-colors",
-                                    children: "Harga"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 77,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/(main)/page.tsx",
-                            lineNumber: 73,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-372dae523c11618e" + " " + "flex items-center space-x-4",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                    href: "#",
-                                    className: "jsx-372dae523c11618e" + " " + "text-sm font-semibold text-stone-600 hover:text-rose-900 transition-colors",
-                                    children: "Log In"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 81,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].a, {
-                                    whileHover: {
-                                        scale: 1.05
-                                    },
-                                    whileTap: {
-                                        scale: 0.95
-                                    },
-                                    href: "https://wa.me/6123456789",
-                                    target: "_blank",
-                                    className: "bg-rose-900 hover:bg-rose-950 text-white text-xs font-bold px-6 py-3 rounded-full shadow-md shadow-rose-900/20 transition-colors",
-                                    children: "Daftar Gratis"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 82,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/(main)/page.tsx",
-                            lineNumber: 80,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
+        animate: {
+            opacity: 1,
+            scale: 1
+        },
+        transition: {
+            delay,
+            duration: 0.45,
+            ease: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EASE"]
+        },
+        className: "relative",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: `relative aspect-[4/3] overflow-hidden rounded-[3px] bg-gradient-to-br ${tone}`,
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].span, {
+                    initial: {
+                        opacity: 0
+                    },
+                    animate: {
+                        opacity: [
+                            0,
+                            0.95,
+                            0
+                        ]
+                    },
+                    transition: {
+                        delay,
+                        duration: 0.5,
+                        times: [
+                            0,
+                            0.12,
+                            1
+                        ]
+                    },
+                    className: "absolute inset-0 bg-white"
+                }, void 0, false, {
                     fileName: "[project]/app/(main)/page.tsx",
-                    lineNumber: 65,
+                    lineNumber: 19,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                    className: "absolute inset-x-0 bottom-0 p-2 text-[10px] font-medium tracking-wide text-white/90",
+                    children: caption
+                }, void 0, false, {
+                    fileName: "[project]/app/(main)/page.tsx",
+                    lineNumber: 25,
                     columnNumber: 9
                 }, this)
-            }, void 0, false, {
-                fileName: "[project]/app/(main)/page.tsx",
-                lineNumber: 59,
-                columnNumber: 7
-            }, this),
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/(main)/page.tsx",
+            lineNumber: 18,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/(main)/page.tsx",
+        lineNumber: 12,
+        columnNumber: 5
+    }, this);
+}
+_c = Frame;
+const langkah = [
+    {
+        t: 'Pilih layanan',
+        d: 'Chat kami di WhatsApp, sebutkan tanggal dan jumlah tamu atau peserta.'
+    },
+    {
+        t: 'Kunci jadwal',
+        d: 'Bayar DP 30%. Slot studio dan tanggal event langsung kami tahan atas nama kamu.'
+    },
+    {
+        t: 'Hari-H',
+        d: 'Undangan tayang, studio siap, atau tim photobooth datang satu jam sebelum acara mulai.'
+    }
+];
+function Home() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "jsx-372dae523c11618e" + " " + "relative bg-gradient-to-br from-rose-950 via-rose-900 to-red-950 text-white py-16 md:py-24 px-6 overflow-hidden",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-372dae523c11618e" + " " + "absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent pointer-events-none"
-                    }, void 0, false, {
-                        fileName: "[project]/app/(main)/page.tsx",
-                        lineNumber: 97,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-372dae523c11618e" + " " + "max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                initial: {
-                                    opacity: 0,
-                                    x: -40
-                                },
-                                animate: {
-                                    opacity: 1,
-                                    x: 0
-                                },
-                                transition: {
-                                    duration: 0.8,
-                                    ease: 'easeOut'
-                                },
-                                className: "lg:col-span-7 space-y-6 text-left",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                        className: "jsx-372dae523c11618e" + " " + "text-4xl sm:text-5xl md:text-6xl font-serif font-black tracking-tight leading-[1.15] text-white",
-                                        children: [
-                                            "Buat Undangan Online ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
-                                                className: "jsx-372dae523c11618e"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 109,
-                                                columnNumber: 36
-                                            }, this),
-                                            "Digital Website Untuk ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
-                                                className: "jsx-372dae523c11618e"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 110,
-                                                columnNumber: 37
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "jsx-372dae523c11618e" + " " + "text-amber-400 font-sans font-extrabold",
-                                                children: "Pernikahanmu"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 111,
-                                                columnNumber: 15
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 108,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "jsx-372dae523c11618e" + " " + "text-sm md:text-base text-stone-200/90 max-w-xl leading-relaxed font-medium",
-                                        children: "Buat undangan online digital website custom dengan Amarayya, meski kamu gaptek tetap bisa bikin undangan website sendiri dari smart phone. Cukup pilih tema, edit detail acara, upload foto, semua bisa selesai dalam hitungan menit."
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 114,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-372dae523c11618e" + " " + "pt-4",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].a, {
-                                            whileHover: {
-                                                scale: 1.03
-                                            },
-                                            whileTap: {
-                                                scale: 0.97
-                                            },
-                                            href: "#katalog",
-                                            className: "inline-flex items-center bg-stone-900 hover:bg-stone-950 text-white font-bold text-sm px-8 py-4 rounded-xl border border-stone-800 shadow-xl shadow-black/20 gap-3 group",
+                className: "sweep-blush overflow-hidden",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mx-auto grid max-w-6xl items-center gap-14 px-5 py-20 lg:grid-cols-12 lg:py-28",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "lg:col-span-7",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].p, {
+                                    initial: {
+                                        opacity: 0
+                                    },
+                                    animate: {
+                                        opacity: 1
+                                    },
+                                    transition: {
+                                        duration: 0.5
+                                    },
+                                    className: "mb-5 flex items-center gap-2 text-[13px] text-[#1A1520]/60",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[#C8203C]"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 52,
+                                            columnNumber: 15
+                                        }, this),
+                                        "Bogor & Jabodetabek"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 46,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].h1, {
+                                    initial: {
+                                        opacity: 0,
+                                        y: 20
+                                    },
+                                    animate: {
+                                        opacity: 1,
+                                        y: 0
+                                    },
+                                    transition: {
+                                        duration: 0.8,
+                                        ease: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EASE"]
+                                    },
+                                    className: "font-display text-[clamp(2.75rem,7vw,5rem)] leading-[0.95] tracking-[-0.01em]",
+                                    children: [
+                                        "Undang mereka,",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 63,
+                                            columnNumber: 15
+                                        }, this),
+                                        "rayakan harinya,",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 65,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("em", {
+                                            className: "italic text-[#C8203C]",
+                                            children: "bawa pulang cetakannya."
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 66,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 56,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].p, {
+                                    initial: {
+                                        opacity: 0,
+                                        y: 16
+                                    },
+                                    animate: {
+                                        opacity: 1,
+                                        y: 0
+                                    },
+                                    transition: {
+                                        delay: 0.15,
+                                        duration: 0.7,
+                                        ease: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EASE"]
+                                    },
+                                    className: "mt-7 max-w-[54ch] text-[15px] leading-relaxed text-[#1A1520]/70",
+                                    children: "Amarayya mengurus tiga bagian dari satu acara: undangan digital yang disebar lewat WhatsApp, self photo studio untuk sesi foto tanpa fotografer, dan photobooth yang kami bawa ke lokasi."
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 69,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                    initial: {
+                                        opacity: 0,
+                                        y: 16
+                                    },
+                                    animate: {
+                                        opacity: 1,
+                                        y: 0
+                                    },
+                                    transition: {
+                                        delay: 0.28,
+                                        duration: 0.7,
+                                        ease: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EASE"]
+                                    },
+                                    className: "mt-9 flex flex-wrap items-center gap-3",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["WaButton"], {}, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 85,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                            href: "#layanan",
+                                            className: "rounded-full border border-[#1A1520]/25 px-7 py-3.5 text-sm font-semibold transition-colors hover:border-[#1A1520] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8203C]",
+                                            children: "Lihat tiga layanan"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 86,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 79,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/(main)/page.tsx",
+                            lineNumber: 45,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "lg:col-span-5",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                    initial: {
+                                        opacity: 0,
+                                        y: 30,
+                                        rotate: -3
+                                    },
+                                    animate: {
+                                        opacity: 1,
+                                        y: 0,
+                                        rotate: -2
+                                    },
+                                    transition: {
+                                        duration: 0.8,
+                                        ease: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EASE"]
+                                    },
+                                    className: "relative mx-auto w-[248px] rounded-[6px] bg-white p-3 pb-16 shadow-[0_35px_70px_-30px_rgba(26,21,32,0.55)]",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "space-y-2",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "jsx-372dae523c11618e",
-                                                    children: "Daftar & Coba Gratis"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Frame, {
+                                                    caption: "Undangan",
+                                                    tone: "from-[#7A2E3C] to-[#2A0C10]",
+                                                    delay: 0.6
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 125,
+                                                    lineNumber: 104,
                                                     columnNumber: 17
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "jsx-372dae523c11618e" + " " + "bg-white/10 w-6 h-6 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform",
-                                                    children: "→"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Frame, {
+                                                    caption: "Self studio",
+                                                    tone: "from-[#8E7FB8] to-[#3B3252]",
+                                                    delay: 1.0
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 126,
+                                                    lineNumber: 105,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Frame, {
+                                                    caption: "Photobooth",
+                                                    tone: "from-[#4F7A66] to-[#1E3329]",
+                                                    delay: 1.4
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/(main)/page.tsx",
+                                                    lineNumber: 106,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Frame, {
+                                                    caption: "Cetak",
+                                                    tone: "from-[#C8203C] to-[#66101E]",
+                                                    delay: 1.8
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/(main)/page.tsx",
+                                                    lineNumber: 107,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 119,
+                                            lineNumber: 103,
                                             columnNumber: 15
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 118,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/(main)/page.tsx",
-                                lineNumber: 102,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                initial: {
-                                    opacity: 0,
-                                    scale: 0.9
-                                },
-                                animate: {
-                                    opacity: 1,
-                                    scale: 1
-                                },
-                                transition: {
-                                    duration: 0.8,
-                                    delay: 0.2
-                                },
-                                className: "lg:col-span-5 flex justify-center items-center relative h-[500px] md:h-[550px] w-full",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-372dae523c11618e" + " " + "absolute top-8 left-0 md:left-[-40px] z-20 bg-white text-stone-800 p-4 rounded-2xl shadow-2xl max-w-[210px] text-left border border-stone-100 animate-float",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "jsx-372dae523c11618e" + " " + "text-xs font-bold text-stone-900",
-                                                children: "Doni Irza"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 140,
-                                                columnNumber: 15
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "jsx-372dae523c11618e" + " " + "text-[11px] text-stone-500 mt-1 leading-relaxed font-medium",
-                                                children: "Semoga Ananda menjadi keluarga yg Sakinah Mawadah dan Warohma, Aamiin YRA 🤲✨"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 141,
-                                                columnNumber: 15
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 139,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-372dae523c11618e" + " " + "absolute bottom-16 left-6 md:left-2 z-20 bg-white p-3 rounded-xl shadow-2xl border border-stone-100 animate-float-delayed",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-372dae523c11618e" + " " + "w-14 h-14 bg-gradient-to-br from-stone-800 to-stone-950 rounded flex items-center justify-center text-white text-2xl font-mono shadow-inner",
-                                            children: "🔳"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 148,
-                                            columnNumber: 15
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 147,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                        whileHover: {
-                                            y: -5
-                                        },
-                                        className: "relative w-[240px] h-[480px] bg-stone-900 rounded-[40px] p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border-4 border-stone-800 z-10 overflow-hidden",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-372dae523c11618e" + " " + "w-full h-full bg-gradient-to-b from-rose-950 to-rose-900 rounded-[32px] overflow-hidden p-4 flex flex-col justify-between text-center relative border border-white/5",
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "absolute inset-x-0 bottom-0 flex items-center justify-between px-4 pb-4",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "jsx-372dae523c11618e" + " " + "absolute inset-0 opacity-10 flex items-center justify-center text-7xl select-none pointer-events-none",
-                                                    children: "⚜️"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "font-display text-xl leading-none",
+                                                    children: "Amarayya"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 159,
+                                                    lineNumber: 110,
                                                     columnNumber: 17
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "jsx-372dae523c11618e" + " " + "space-y-1 mt-6",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                            className: "jsx-372dae523c11618e" + " " + "text-[9px] uppercase tracking-widest text-amber-300 font-bold",
-                                                            children: "The Wedding of"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 162,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                            className: "jsx-372dae523c11618e" + " " + "font-serif text-lg font-bold text-amber-100",
-                                                            children: "Atma & Fahmi"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 163,
-                                                            columnNumber: 19
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-[10px] text-[#1A1520]/45",
+                                                    children: "2026"
+                                                }, void 0, false, {
                                                     fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 161,
+                                                    lineNumber: 111,
                                                     columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 109,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 97,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].p, {
+                                    initial: {
+                                        opacity: 0
+                                    },
+                                    animate: {
+                                        opacity: 1
+                                    },
+                                    transition: {
+                                        delay: 2.2,
+                                        duration: 0.6
+                                    },
+                                    className: "mt-6 text-center text-[13px] text-[#1A1520]/55",
+                                    children: "Strip 4 frame, keluar 60 detik setelah tombol ditekan."
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 115,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/(main)/page.tsx",
+                            lineNumber: 96,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/(main)/page.tsx",
+                    lineNumber: 44,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/(main)/page.tsx",
+                lineNumber: 43,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "overflow-hidden border-y border-[#1A1520]/12 bg-[#1A1520] py-3 text-[#EFE9E4]",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "marquee flex w-max gap-10 whitespace-nowrap text-[12px] tracking-[0.18em]",
+                    children: Array.from({
+                        length: 4
+                    }).map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "flex items-center gap-10",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    children: "3 · 2 · 1 · SENYUM"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 132,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Shutter"], {
+                                    className: "h-3.5 w-3.5 text-[#C8203C]"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 133,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    children: "CETAK DI TEMPAT"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 134,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Shutter"], {
+                                    className: "h-3.5 w-3.5 text-[#C8203C]"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 135,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    children: "FILE DIKIRIM HARI ITU"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 136,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Shutter"], {
+                                    className: "h-3.5 w-3.5 text-[#C8203C]"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 137,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, i, true, {
+                            fileName: "[project]/app/(main)/page.tsx",
+                            lineNumber: 131,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/app/(main)/page.tsx",
+                    lineNumber: 129,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/(main)/page.tsx",
+                lineNumber: 128,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                id: "layanan",
+                className: "sweep-lilac",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mx-auto max-w-6xl px-5 py-24",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SectionHead"], {
+                            title: "Tiga layanan, satu tim",
+                            body: "Bisa diambil terpisah, bisa sekaligus. Kalau ambil dua atau lebih untuk acara yang sama, harganya kami gabung."
+                        }, void 0, false, {
+                            fileName: "[project]/app/(main)/page.tsx",
+                            lineNumber: 146,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Reveal"], {
+                            stagger: true,
+                            className: "mt-14 grid gap-6 md:grid-cols-3",
+                            children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$site$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["services"].map((s, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].article, {
+                                    variants: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["rise"],
+                                    className: [
+                                        'flex flex-col justify-between bg-white p-7 transition-transform duration-300 hover:-translate-y-1',
+                                        // bentuk mengikuti wujud produknya: layar HP / bingkai foto / strip
+                                        i === 0 ? 'rounded-[28px]' : i === 1 ? 'rounded-[4px]' : 'rounded-[4px] border-y-[10px] border-[#1A1520]'
+                                    ].join(' '),
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-display text-[26px] leading-tight",
+                                                    children: s.label
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/(main)/page.tsx",
+                                                    lineNumber: 163,
+                                                    columnNumber: 19
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "jsx-372dae523c11618e" + " " + "w-28 h-28 bg-white/10 border border-white/20 rounded-full mx-auto flex items-center justify-center text-4xl shadow-inner my-auto",
-                                                    children: "👩‍❤️‍👨"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "mt-3 text-[14px] leading-relaxed text-[#1A1520]/70",
+                                                    children: s.line
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/(main)/page.tsx",
+                                                    lineNumber: 164,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                                    className: "mt-6 space-y-2.5 border-t border-[#1A1520]/10 pt-5 text-[13.5px] text-[#1A1520]/75",
+                                                    children: s.points.map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                            className: "flex gap-2.5",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[#C8203C]"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/(main)/page.tsx",
+                                                                    lineNumber: 169,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                p
+                                                            ]
+                                                        }, p, true, {
+                                                            fileName: "[project]/app/(main)/page.tsx",
+                                                            lineNumber: 168,
+                                                            columnNumber: 23
+                                                        }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(main)/page.tsx",
                                                     lineNumber: 166,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "jsx-372dae523c11618e" + " " + "space-y-3 mb-4 z-10",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "jsx-372dae523c11618e" + " " + "text-[9px] text-stone-300 font-medium",
-                                                            children: [
-                                                                "Kepada Yth. ",
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
-                                                                    className: "jsx-372dae523c11618e"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                                    lineNumber: 172,
-                                                                    columnNumber: 33
-                                                                }, this),
-                                                                "Bapak/Ibu/Saudara/i"
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 171,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "jsx-372dae523c11618e" + " " + "text-xs font-bold text-white bg-black/20 py-1.5 px-3 rounded-lg border border-white/5 inline-block min-w-[120px]",
-                                                            children: "Nama Tamu"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 175,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "jsx-372dae523c11618e",
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                className: "jsx-372dae523c11618e" + " " + "bg-amber-400 text-stone-900 text-[10px] font-black uppercase tracking-wider px-4 py-2 rounded-full shadow-md",
-                                                                children: "Open Invitation"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 179,
-                                                                columnNumber: 21
-                                                            }, this)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 178,
-                                                            columnNumber: 19
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 170,
-                                                    columnNumber: 17
+                                                    columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 158,
-                                            columnNumber: 15
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 154,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-372dae523c11618e" + " " + "absolute top-24 right-0 md:right-[-20px] z-20 flex gap-2 animate-float",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-372dae523c11618e" + " " + "bg-amber-400 text-stone-950 p-2.5 rounded-xl text-center min-w-[55px] shadow-xl border border-amber-300",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "jsx-372dae523c11618e" + " " + "block text-sm font-black",
-                                                        children: "180"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 190,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "jsx-372dae523c11618e" + " " + "text-[8px] font-bold uppercase tracking-wider block opacity-80",
-                                                        children: "Hadir"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 191,
-                                                        columnNumber: 17
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 189,
-                                                columnNumber: 15
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-372dae523c11618e" + " " + "bg-rose-500 text-white p-2.5 rounded-xl text-center min-w-[55px] shadow-xl border border-rose-400",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "jsx-372dae523c11618e" + " " + "block text-sm font-black",
-                                                        children: "26"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 194,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "jsx-372dae523c11618e" + " " + "text-[8px] font-bold uppercase tracking-wider block opacity-80",
-                                                        children: "Absen"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 195,
-                                                        columnNumber: 17
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 193,
-                                                columnNumber: 15
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 188,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-372dae523c11618e" + " " + "absolute bottom-10 right-0 md:right-[-50px] z-20 bg-white text-stone-800 p-4 rounded-2xl shadow-2xl max-w-[190px] text-left border border-stone-100 animate-float-delayed",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "jsx-372dae523c11618e" + " " + "text-xs font-bold text-stone-900",
-                                                children: "Evita"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 201,
-                                                columnNumber: 15
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "jsx-372dae523c11618e" + " " + "text-[11px] text-stone-500 mt-1 leading-relaxed font-medium",
-                                                children: "Selamat menempuh hidup baru bro, semoga menjadi keluarga yg sakinah, mawaddah, warohmah, amiin"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 202,
-                                                columnNumber: 15
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 200,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/(main)/page.tsx",
-                                lineNumber: 132,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/(main)/page.tsx",
-                        lineNumber: 99,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/(main)/page.tsx",
-                lineNumber: 96,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "jsx-372dae523c11618e" + " " + "bg-white py-20 px-6 border-b border-stone-100 overflow-hidden",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "jsx-372dae523c11618e" + " " + "max-w-6xl mx-auto space-y-28",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                            initial: "hidden",
-                            whileInView: "visible",
-                            viewport: {
-                                once: true,
-                                margin: "-100px"
-                            },
-                            variants: staggerContainer,
-                            className: "grid grid-cols-1 lg:grid-cols-12 gap-12 items-center",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                    variants: fadeInUp,
-                                    className: "lg:col-span-6 flex justify-center relative min-h-[300px] w-full group",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-372dae523c11618e" + " " + "w-[70%] h-[200px] bg-slate-50 border border-stone-200 rounded-xl p-3 shadow-md absolute left-4 top-4 transition-transform duration-500 group-hover:-translate-x-1 group-hover:-translate-y-1",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "jsx-372dae523c11618e" + " " + "flex gap-1.5 mb-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "jsx-372dae523c11618e" + " " + "w-2.5 h-2.5 rounded-full bg-rose-900/40 block"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 226,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "jsx-372dae523c11618e" + " " + "w-2.5 h-2.5 rounded-full bg-rose-900/30 block"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 227,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "jsx-372dae523c11618e" + " " + "w-2.5 h-2.5 rounded-full bg-rose-900/20 block"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 228,
-                                                            columnNumber: 19
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 225,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "jsx-372dae523c11618e" + " " + "space-y-2",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "jsx-372dae523c11618e" + " " + "h-4 bg-stone-200/60 rounded w-1/3"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 231,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "jsx-372dae523c11618e" + " " + "grid grid-cols-3 gap-2 pt-2",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "jsx-372dae523c11618e" + " " + "h-16 bg-stone-200/40 rounded"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                                    lineNumber: 233,
-                                                                    columnNumber: 21
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "jsx-372dae523c11618e" + " " + "h-16 bg-stone-200/40 rounded"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                                    lineNumber: 234,
-                                                                    columnNumber: 21
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "jsx-372dae523c11618e" + " " + "h-16 bg-stone-200/40 rounded"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                                    lineNumber: 235,
-                                                                    columnNumber: 21
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 232,
-                                                            columnNumber: 19
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 230,
-                                                    columnNumber: 17
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 224,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-372dae523c11618e" + " " + "w-[40%] h-[240px] bg-stone-900 border-4 border-stone-800 rounded-[24px] p-2 shadow-2xl absolute right-12 bottom-0 transition-transform duration-500 group-hover:scale-[1.03] overflow-hidden flex flex-col justify-between",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-372dae523c11618e" + " " + "w-full h-full bg-gradient-to-b from-rose-950 to-rose-900 rounded-[18px] p-2 flex flex-col justify-between",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-372dae523c11618e" + " " + "space-y-1",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "jsx-372dae523c11618e" + " " + "h-2 bg-white/20 rounded w-1/2 mx-auto"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 243,
-                                                                columnNumber: 21
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "jsx-372dae523c11618e" + " " + "h-2 bg-white/10 rounded w-2/3 mx-auto"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 244,
-                                                                columnNumber: 21
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 242,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-372dae523c11618e" + " " + "w-8 h-8 rounded-full bg-white/10 mx-auto"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 246,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-372dae523c11618e" + " " + "h-3 bg-amber-400 rounded-md w-3/4 mx-auto"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 247,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 241,
-                                                columnNumber: 17
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 240,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-372dae523c11618e" + " " + "absolute left-10 bottom-4 bg-white border border-stone-200 px-4 py-2 rounded-xl shadow-lg font-bold text-xs tracking-wide text-rose-900 animate-pulse",
-                                            children: "amarrayya.inv"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 251,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 223,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                    variants: fadeInUp,
-                                    className: "lg:col-span-6 text-left space-y-4",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "jsx-372dae523c11618e" + " " + "text-3xl md:text-4xl font-serif font-black text-rose-950 leading-tight",
-                                            children: [
-                                                "Buat Undangan Online ",
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
-                                                    className: "jsx-372dae523c11618e"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 258,
-                                                    columnNumber: 38
-                                                }, this),
-                                                "Digital Website 10 Menit ",
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
-                                                    className: "jsx-372dae523c11618e"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 259,
-                                                    columnNumber: 42
-                                                }, this),
-                                                "Cukup Pake HP Aja"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 257,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "jsx-372dae523c11618e" + " " + "text-sm md:text-base text-stone-500 leading-relaxed font-medium",
-                                            children: "Buat undangan website praktis dan nyaman. Tanpa harus didepan laptop berjam-jam. Cukup pilih tema, edit detail acara, upload foto, semua bisa selesai dalam hitungan menit."
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 262,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 256,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/(main)/page.tsx",
-                            lineNumber: 216,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                            initial: "hidden",
-                            whileInView: "visible",
-                            viewport: {
-                                once: true,
-                                margin: "-100px"
-                            },
-                            variants: staggerContainer,
-                            className: "grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                    variants: fadeInUp,
-                                    className: "lg:col-span-6 text-left space-y-4 order-2 lg:order-1",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "jsx-372dae523c11618e" + " " + "text-3xl md:text-4xl font-serif font-black text-rose-950 leading-tight",
-                                            children: [
-                                                "Kirim Undangan Ke Semua ",
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
-                                                    className: "jsx-372dae523c11618e"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 278,
-                                                    columnNumber: 41
-                                                }, this),
-                                                "Tamu Dalam Sekali Klik"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 277,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "jsx-372dae523c11618e" + " " + "text-sm md:text-base text-stone-500 leading-relaxed font-medium",
-                                            children: "Amarayya dilengkapi fitur WhatsApp broadcast yang memudahkan kamu mengirim undangan digital ke semua tamu hanya dalam sekilas klik saja. Dapatkan harga promo undangan digital terbaik sekarang juga!"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 281,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 276,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                    variants: fadeInUp,
-                                    className: "lg:col-span-6 flex justify-center relative min-h-[300px] w-full order-1 lg:order-2 group",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-372dae523c11618e" + " " + "absolute top-0 left-6 md:left-12 z-20 bg-white/95 border border-stone-100 p-3.5 rounded-2xl shadow-xl max-w-[210px] text-left backdrop-blur-sm transition-transform duration-500 group-hover:-translate-y-1",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "jsx-372dae523c11618e" + " " + "flex items-center gap-1.5 text-[10px] text-emerald-600 font-bold",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "jsx-372dae523c11618e",
-                                                            children: "💬"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 289,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        " Terkirim ",
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "jsx-372dae523c11618e" + " " + "text-stone-400 font-normal",
-                                                            children: "08.35"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 289,
-                                                            columnNumber: 44
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 288,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "jsx-372dae523c11618e" + " " + "text-[11px] font-bold text-stone-900 mt-1",
-                                                    children: "Kepada Yth;"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 291,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "jsx-372dae523c11618e" + " " + "text-[11px] font-black text-rose-900",
-                                                    children: "Aldi & Lina"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 292,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "jsx-372dae523c11618e" + " " + "text-[10px] text-stone-400 mt-1 truncate",
-                                                    children: "Kami mengundang Anda untuk menghadiri..."
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 293,
-                                                    columnNumber: 17
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 287,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-372dae523c11618e" + " " + "w-[45%] h-[240px] bg-stone-900 border-4 border-stone-800 rounded-[28px] p-2 shadow-2xl transition-transform duration-500 group-hover:rotate-1 overflow-hidden flex flex-col justify-between my-auto",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-372dae523c11618e" + " " + "w-full h-full bg-stone-100 rounded-[20px] relative overflow-hidden flex flex-col",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-372dae523c11618e" + " " + "bg-emerald-800 h-6 w-full flex items-center px-2",
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "jsx-372dae523c11618e" + " " + "w-2 h-2 bg-white/40 rounded-full"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 299,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 298,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-372dae523c11618e" + " " + "flex-1 p-2 space-y-2 bg-stone-50",
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "jsx-372dae523c11618e" + " " + "bg-emerald-100 p-2 rounded-lg text-[9px] w-3/4 shadow-sm border border-emerald-200/40 text-left",
-                                                            children: "Halo! Kami mengundang Anda..."
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 302,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 301,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 297,
-                                                columnNumber: 17
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 296,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-372dae523c11618e" + " " + "absolute right-4 md:right-10 top-16 bg-white/90 border border-stone-200 px-5 py-2.5 rounded-xl shadow-xl font-bold text-xs text-emerald-600 tracking-wide backdrop-blur-sm transition-transform duration-500 group-hover:translate-x-1",
-                                            children: "WhatsApp"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 309,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 286,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/(main)/page.tsx",
-                            lineNumber: 269,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/app/(main)/page.tsx",
-                    lineNumber: 213,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/app/(main)/page.tsx",
-                lineNumber: 212,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                id: "fitur",
-                className: "jsx-372dae523c11618e" + " " + "bg-white py-24 border-y border-stone-200/50 shadow-inner",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "jsx-372dae523c11618e" + " " + "max-w-6xl mx-auto px-6",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                            initial: "hidden",
-                            whileInView: "visible",
-                            viewport: {
-                                once: true
-                            },
-                            variants: fadeInUp,
-                            className: "text-center max-w-2xl mx-auto",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "jsx-372dae523c11618e" + " " + "text-3xl md:text-4xl font-serif font-bold text-stone-900 tracking-tight",
-                                    children: "Fitur Eksklusif Pilihan"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 328,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "jsx-372dae523c11618e" + " " + "text-stone-500 mt-3 text-sm md:text-base",
-                                    children: "Seluruh detail kemudahan interaksi disiapkan matang demi kenyamanan para tamu kehormatan."
-                                }, void 0, false, {
-                                    fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 329,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/(main)/page.tsx",
-                            lineNumber: 321,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                            initial: "hidden",
-                            whileInView: "visible",
-                            viewport: {
-                                once: true,
-                                margin: "-50px"
-                            },
-                            variants: staggerContainer,
-                            className: "grid grid-cols-1 md:grid-cols-3 gap-8 mt-16",
-                            children: [
-                                {
-                                    icon: '🎵',
-                                    title: 'Cinematic Symphony',
-                                    desc: 'Alunan simfoni melodi romantis mengalun secara anggun mengiringi langkah para tamu menelusuri lembar undangan.'
-                                },
-                                {
-                                    icon: '📝',
-                                    title: 'Real-Time RSVP',
-                                    desc: 'Sistem pencatatan kehadiran otomatis serta doa restu terintegrasi, aman, dan dapat dipantau setiap detik.'
-                                },
-                                {
-                                    icon: '📍',
-                                    title: 'Live Navigation',
-                                    desc: 'Peta digital presisi tinggi yang menuntun sanak saudara menuju lokasi pelaminan dengan akurat dan mudah.'
-                                }
-                            ].map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                    variants: fadeInUp,
-                                    whileHover: {
-                                        y: -8,
-                                        transition: {
-                                            duration: 0.2
-                                        }
-                                    },
-                                    className: "p-8 bg-stone-50/50 rounded-3xl border border-stone-200/60 hover:bg-white hover:border-rose-900/30 transition-all duration-300 group hover:shadow-2xl hover:shadow-rose-950/5",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-372dae523c11618e" + " " + "w-14 h-14 bg-rose-50 text-rose-900 flex items-center justify-center rounded-2xl font-bold text-2xl mb-6 shadow-sm group-hover:bg-rose-900 group-hover:text-white transition-all duration-300 group-hover:rotate-6",
-                                            children: item.icon
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 350,
+                                            lineNumber: 162,
                                             columnNumber: 17
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                            className: "jsx-372dae523c11618e" + " " + "font-serif font-bold text-xl text-stone-900",
-                                            children: item.title
-                                        }, void 0, false, {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                            href: s.href,
+                                            className: "mt-7 inline-flex w-fit border-b border-[#C8203C] pb-0.5 text-[13.5px] font-semibold text-[#C8203C] transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8203C]",
+                                            children: [
+                                                "Pelajari ",
+                                                s.label.toLowerCase()
+                                            ]
+                                        }, void 0, true, {
                                             fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 353,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "jsx-372dae523c11618e" + " " + "text-stone-600 text-sm mt-3 leading-relaxed",
-                                            children: item.desc
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/(main)/page.tsx",
-                                            lineNumber: 354,
+                                            lineNumber: 176,
                                             columnNumber: 17
                                         }, this)
                                     ]
-                                }, idx, true, {
+                                }, s.key, true, {
                                     fileName: "[project]/app/(main)/page.tsx",
-                                    lineNumber: 344,
+                                    lineNumber: 153,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/(main)/page.tsx",
-                            lineNumber: 332,
+                            lineNumber: 151,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/(main)/page.tsx",
-                    lineNumber: 320,
+                    lineNumber: 145,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/(main)/page.tsx",
-                lineNumber: 319,
+                lineNumber: 144,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                id: "katalog",
-                className: "jsx-372dae523c11618e" + " " + "max-w-6xl mx-auto px-6 py-24",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                        initial: "hidden",
-                        whileInView: "visible",
-                        viewport: {
-                            once: true
-                        },
-                        variants: fadeInUp,
-                        className: "text-center max-w-2xl mx-auto",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                className: "jsx-372dae523c11618e" + " " + "text-3xl md:text-4xl font-serif font-bold text-stone-900 tracking-tight",
-                                children: "Katalog Karya Agung"
+                id: "cara",
+                className: "sweep-mint",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mx-auto max-w-6xl px-5 py-24",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SectionHead"], {
+                            title: "Tiga langkah dari chat sampai hari-H"
+                        }, void 0, false, {
+                            fileName: "[project]/app/(main)/page.tsx",
+                            lineNumber: 191,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mt-14",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Steps"], {
+                                items: langkah,
+                                tone: "#D6E3DC"
                             }, void 0, false, {
                                 fileName: "[project]/app/(main)/page.tsx",
-                                lineNumber: 370,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "jsx-372dae523c11618e" + " " + "text-stone-500 mt-3 text-sm md:text-base",
-                                children: "Rasakan langsung kemewahan alur interaksi animasi dengan meninjau demo di bawah ini."
-                            }, void 0, false, {
-                                fileName: "[project]/app/(main)/page.tsx",
-                                lineNumber: 371,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/(main)/page.tsx",
-                        lineNumber: 363,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                        initial: "hidden",
-                        whileInView: "visible",
-                        viewport: {
-                            once: true
-                        },
-                        variants: staggerContainer,
-                        className: "grid grid-cols-1 md:grid-cols-2 gap-10 mt-16",
-                        children: templates.map((template)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                variants: fadeInUp,
-                                whileHover: {
-                                    y: -6
-                                },
-                                className: "bg-white border border-stone-200 rounded-[32px] overflow-hidden hover:border-rose-900/20 transition-all duration-300 flex flex-col justify-between group hover:shadow-2xl hover:shadow-rose-950/5",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-372dae523c11618e" + " " + "bg-gradient-to-b from-stone-100 to-stone-50 h-64 flex items-center justify-center border-b border-stone-200/60 relative overflow-hidden",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "jsx-372dae523c11618e" + " " + "absolute top-5 left-5 bg-white text-rose-900 border border-rose-100/80 font-bold text-[10px] px-3 py-1.5 rounded-full tracking-wider uppercase shadow-sm",
-                                                children: template.badge
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 389,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-372dae523c11618e" + " " + `w-16 h-16 rounded-3xl bg-gradient-to-br ${template.accentColor} flex items-center justify-center text-3xl shadow-xl shadow-amber-900/25 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`,
-                                                children: template.emoji
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 392,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 388,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-372dae523c11618e" + " " + "p-8",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "jsx-372dae523c11618e" + " " + "font-serif font-bold text-2xl text-stone-900 tracking-tight",
-                                                children: template.name
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 397,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "jsx-372dae523c11618e" + " " + "text-stone-600 text-sm mt-3 leading-relaxed font-medium",
-                                                children: template.desc
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 398,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-372dae523c11618e" + " " + "mt-8 pt-6 border-t border-stone-100",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    href: `/inv/${template.demoSlug}`,
-                                                    target: "_blank",
-                                                    className: "w-full inline-flex items-center justify-center bg-stone-900 hover:bg-rose-900 text-white font-bold text-sm py-4 px-5 rounded-2xl text-center transition-all duration-300 gap-2 group/btn shadow-md hover:shadow-xl hover:shadow-rose-900/20",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "jsx-372dae523c11618e",
-                                                            children: "👁️"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 405,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        " Live Preview Demo",
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "jsx-372dae523c11618e" + " " + "transform group-hover/btn:translate-x-1.5 transition-transform duration-300",
-                                                            children: "→"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 406,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/(main)/page.tsx",
-                                                    lineNumber: 400,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 399,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 396,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, template.id, true, {
-                                fileName: "[project]/app/(main)/page.tsx",
-                                lineNumber: 382,
+                                lineNumber: 193,
                                 columnNumber: 13
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/app/(main)/page.tsx",
-                        lineNumber: 374,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/app/(main)/page.tsx",
+                            lineNumber: 192,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/(main)/page.tsx",
+                    lineNumber: 190,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
                 fileName: "[project]/app/(main)/page.tsx",
-                lineNumber: 362,
+                lineNumber: 189,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                 id: "harga",
-                className: "jsx-372dae523c11618e" + " " + "bg-stone-900 text-white py-24 border-t border-stone-800 relative overflow-hidden",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-372dae523c11618e" + " " + "absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-rose-950/40 via-transparent to-transparent pointer-events-none"
-                    }, void 0, false, {
-                        fileName: "[project]/app/(main)/page.tsx",
-                        lineNumber: 417,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-372dae523c11618e" + " " + "max-w-6xl mx-auto px-6 text-center relative z-10",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                initial: "hidden",
-                                whileInView: "visible",
-                                viewport: {
-                                    once: true
-                                },
-                                variants: fadeInUp,
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "jsx-372dae523c11618e" + " " + "text-3xl md:text-4xl font-serif font-bold text-white tracking-tight",
-                                        children: "Investasi Sekali, Kenangan Abadi"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 420,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "jsx-372dae523c11618e" + " " + "text-stone-400 mt-3 text-sm md:text-base",
-                                        children: "Miliki kebebasan penuh mengatur rancangan hari istimewa Anda lewat pilihan paket esensial kami."
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 421,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/(main)/page.tsx",
-                                lineNumber: 419,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                initial: "hidden",
-                                whileInView: "visible",
-                                viewport: {
-                                    once: true
-                                },
-                                variants: staggerContainer,
-                                className: "grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-5xl mx-auto items-stretch",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                        variants: fadeInUp,
-                                        whileHover: {
-                                            y: -4
-                                        },
-                                        className: "bg-stone-950/60 border border-stone-800 rounded-[32px] p-8 shadow-xl flex flex-col justify-between transition-all duration-300 hover:border-stone-700",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-372dae523c11618e",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                        className: "jsx-372dae523c11618e" + " " + "font-bold text-xs uppercase tracking-widest text-stone-400",
-                                                        children: "Paket Hemat"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 434,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-372dae523c11618e" + " " + "mt-5 flex items-baseline justify-center",
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "jsx-372dae523c11618e" + " " + "text-4xl font-black text-white",
-                                                            children: "Rp49.000"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 436,
-                                                            columnNumber: 19
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 435,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "jsx-372dae523c11618e" + " " + "text-[11px] text-stone-500 mt-2 font-medium",
-                                                        children: "Masa Aktif 3 Bulan Kontrak"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 438,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                                        className: "jsx-372dae523c11618e" + " " + "mt-8 space-y-4 text-left text-xs md:text-sm text-stone-400 border-t border-stone-800 pt-6",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-amber-600 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 440,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Pilihan Template Standard"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 440,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-amber-600 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 441,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Fitur Informasi Acara Utama"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 441,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-amber-600 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 442,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Integrasi Google Maps Presisi"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 442,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-amber-600 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 443,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Protokol Kesehatan Elegan"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 443,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3 text-stone-700 line-through",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-stone-700 text-base",
-                                                                        children: "✕"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 444,
-                                                                        columnNumber: 87
-                                                                    }, this),
-                                                                    " Background Music Audio"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 444,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3 text-stone-700 line-through",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-stone-700 text-base",
-                                                                        children: "✕"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 445,
-                                                                        columnNumber: 87
-                                                                    }, this),
-                                                                    " Buku Tamu & Dashboard RSVP"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 445,
-                                                                columnNumber: 19
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 439,
-                                                        columnNumber: 17
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 433,
-                                                columnNumber: 15
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                href: "https://wa.me/6123456789",
-                                                target: "_blank",
-                                                className: "jsx-372dae523c11618e" + " " + "mt-8 w-full block bg-stone-800 hover:bg-rose-900 border border-stone-700 hover:border-rose-800 text-white font-bold py-3.5 px-4 rounded-xl text-center transition-colors text-xs tracking-wider uppercase",
-                                                children: "Pilih Paket Hemat"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 448,
-                                                columnNumber: 15
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 432,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                        variants: fadeInUp,
-                                        whileHover: {
-                                            y: -8
-                                        },
-                                        className: "bg-white text-stone-900 border-2 border-rose-900 rounded-[32px] p-8 shadow-2xl flex flex-col justify-between relative transform md:-translate-y-4",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "jsx-372dae523c11618e" + " " + "absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-rose-900 to-red-700 text-white font-extrabold text-[10px] px-5 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-rose-900/30",
-                                                children: "Paling Diminati"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 453,
-                                                columnNumber: 15
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-372dae523c11618e",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                        className: "jsx-372dae523c11618e" + " " + "font-bold text-xs uppercase tracking-widest text-rose-900 mt-2",
-                                                        children: "Paket Standard"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 455,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-372dae523c11618e" + " " + "mt-5 flex items-baseline justify-center",
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "jsx-372dae523c11618e" + " " + "text-5xl font-black text-rose-950",
-                                                            children: "Rp79.000"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 457,
-                                                            columnNumber: 19
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 456,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "jsx-372dae523c11618e" + " " + "text-[11px] text-rose-800/70 mt-2 font-semibold",
-                                                        children: "Masa Aktif 6 Bulan Kontrak"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 459,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                                        className: "jsx-372dae523c11618e" + " " + "mt-8 space-y-4 text-left text-xs md:text-sm text-stone-600 border-t border-stone-100 pt-6",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-rose-900 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 461,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Bebas Pilih Semua Template"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 461,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-rose-900 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 462,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Background Music (1 Sound Link)"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 462,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-rose-900 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 463,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Integrasi Google Maps & RSVP System"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 463,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-rose-900 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 464,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Galeri Album Estetik (Maks 5 Foto)"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 464,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-rose-900 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 465,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Kuota Sebar Nama Tamu Otomatis"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 465,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3 text-stone-300 line-through",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-stone-300 text-base",
-                                                                        children: "✕"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 466,
-                                                                        columnNumber: 87
-                                                                    }, this),
-                                                                    " Amplop Digital & Premium Storyline"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 466,
-                                                                columnNumber: 19
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 460,
-                                                        columnNumber: 17
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 454,
-                                                columnNumber: 15
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                href: "https://wa.me/6123456789",
-                                                target: "_blank",
-                                                className: "jsx-372dae523c11618e" + " " + "mt-8 w-full block bg-rose-900 hover:bg-rose-950 text-white font-black py-4 px-4 rounded-xl text-center transition-colors text-xs tracking-wider uppercase shadow-lg shadow-rose-900/20",
-                                                children: "Ambil Paket Standard"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 469,
-                                                columnNumber: 15
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 452,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                        variants: fadeInUp,
-                                        whileHover: {
-                                            y: -4
-                                        },
-                                        className: "bg-stone-950/60 border border-stone-800 rounded-[32px] p-8 shadow-xl flex flex-col justify-between transition-all duration-300 hover:border-stone-700",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-372dae523c11618e",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                        className: "jsx-372dae523c11618e" + " " + "font-bold text-xs uppercase tracking-widest text-stone-400",
-                                                        children: "Paket Premium"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 475,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-372dae523c11618e" + " " + "mt-5 flex items-baseline justify-center",
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "jsx-372dae523c11618e" + " " + "text-4xl font-black text-white",
-                                                            children: "Rp99.000"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/(main)/page.tsx",
-                                                            lineNumber: 477,
-                                                            columnNumber: 19
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 476,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "jsx-372dae523c11618e" + " " + "text-[11px] text-stone-500 mt-2 font-medium",
-                                                        children: "Masa Aktif 1 Tahun Penuh"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 479,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                                        className: "jsx-372dae523c11618e" + " " + "mt-8 space-y-4 text-left text-xs md:text-sm text-stone-400 border-t border-stone-800 pt-6",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-amber-600 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 481,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Seluruh Akses Fitur Paket Standard++"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 481,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-amber-600 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 482,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Unlimited Upload Galeri Foto & Video"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 482,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-amber-600 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 483,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Rangkaian Kisah Asmara (Love Journey)"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 483,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-amber-600 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 484,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Kado Amplop Digital (Instant Transfer Bank)"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 484,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-amber-600 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 485,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Countdown Timer Desain Premium"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 485,
-                                                                columnNumber: 19
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "jsx-372dae523c11618e" + " " + "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "jsx-372dae523c11618e" + " " + "text-amber-600 text-base font-bold",
-                                                                        children: "✓"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                                        lineNumber: 486,
-                                                                        columnNumber: 59
-                                                                    }, this),
-                                                                    " Skala Prioritas Penuh Dukungan Admin"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/(main)/page.tsx",
-                                                                lineNumber: 486,
-                                                                columnNumber: 19
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/app/(main)/page.tsx",
-                                                        lineNumber: 480,
-                                                        columnNumber: 17
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 474,
-                                                columnNumber: 15
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                href: "https://wa.me/6123456789",
-                                                target: "_blank",
-                                                className: "jsx-372dae523c11618e" + " " + "mt-8 w-full block bg-stone-800 hover:bg-rose-900 border border-stone-700 hover:border-rose-800 text-white font-bold py-3.5 px-4 rounded-xl text-center transition-colors text-xs tracking-wider uppercase",
-                                                children: "Pilih Paket Premium"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/(main)/page.tsx",
-                                                lineNumber: 489,
-                                                columnNumber: 15
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/(main)/page.tsx",
-                                        lineNumber: 473,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/(main)/page.tsx",
-                                lineNumber: 424,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/(main)/page.tsx",
-                        lineNumber: 418,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/(main)/page.tsx",
-                lineNumber: 416,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-                className: "jsx-372dae523c11618e" + " " + "bg-stone-950 text-stone-500 py-10 border-t border-stone-900 text-xs text-center relative z-10",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "jsx-372dae523c11618e",
-                    children: "© 2026 Amarayya Invitation. Crafted with elegance, precision, and beauty."
-                }, void 0, false, {
+                className: "bg-[#EFE9E4]",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mx-auto max-w-6xl px-5 py-24",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SectionHead"], {
+                            title: "Harga mulai dari",
+                            body: "Rincian paket lengkap ada di halaman masing-masing layanan. Semua harga sudah termasuk pajak."
+                        }, void 0, false, {
+                            fileName: "[project]/app/(main)/page.tsx",
+                            lineNumber: 201,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Reveal"], {
+                            stagger: true,
+                            className: "mt-14 grid gap-6 md:grid-cols-3",
+                            children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$site$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["services"].map((s)=>{
+                                const termurah = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$site$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["pricing"][s.key][0];
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                    variants: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["rise"],
+                                    className: "rounded-[4px] bg-white p-8",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "block h-1.5 w-12 rounded-full",
+                                            style: {
+                                                background: s.solid
+                                            },
+                                            "aria-hidden": true
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 211,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "mt-5 text-[15px] font-semibold",
+                                            children: s.label
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 216,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "mt-4 font-display text-[40px] leading-none",
+                                            children: termurah.price
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 217,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "mt-2 text-[12.5px] text-[#1A1520]/50",
+                                            children: termurah.unit
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 218,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "mt-5 text-[13.5px] leading-relaxed text-[#1A1520]/70",
+                                            children: [
+                                                s.tagline,
+                                                "."
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 219,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                            href: `${s.href}#harga`,
+                                            className: "mt-7 block rounded-full border border-[#1A1520]/20 px-5 py-3.5 text-center text-[13.5px] font-semibold transition-colors hover:bg-[#1A1520] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8203C]",
+                                            children: "Lihat semua paket"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(main)/page.tsx",
+                                            lineNumber: 221,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, s.key, true, {
+                                    fileName: "[project]/app/(main)/page.tsx",
+                                    lineNumber: 210,
+                                    columnNumber: 17
+                                }, this);
+                            })
+                        }, void 0, false, {
+                            fileName: "[project]/app/(main)/page.tsx",
+                            lineNumber: 206,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/app/(main)/page.tsx",
-                    lineNumber: 497,
+                    lineNumber: 200,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/(main)/page.tsx",
-                lineNumber: 496,
+                lineNumber: 199,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                id: "372dae523c11618e",
-                children: "@keyframes float{0%,to{transform:translateY(0)}50%{transform:translateY(-8px)}}.animate-float{animation:4s ease-in-out infinite float}.animate-float-delayed{animation:5s ease-in-out 1.5s infinite float}"
-            }, void 0, false, void 0, this)
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CtaBand"], {
+                title: "Sebutkan tanggalnya, kami tahan slotnya",
+                pesan: "Halo Amarayya, saya mau tanya soal layanan kalian."
+            }, void 0, false, {
+                fileName: "[project]/app/(main)/page.tsx",
+                lineNumber: 234,
+                columnNumber: 7
+            }, this)
         ]
-    }, void 0, true, {
-        fileName: "[project]/app/(main)/page.tsx",
-        lineNumber: 56,
-        columnNumber: 5
-    }, this);
+    }, void 0, true);
 }
-_c = LandingPage;
-var _c;
-__turbopack_context__.k.register(_c, "LandingPage");
+_c1 = Home;
+var _c, _c1;
+__turbopack_context__.k.register(_c, "Frame");
+__turbopack_context__.k.register(_c1, "Home");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

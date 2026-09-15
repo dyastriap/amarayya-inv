@@ -1,33 +1,40 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Instrument_Serif, Plus_Jakarta_Sans } from 'next/font/google';
+import './globals.css';
+import SiteHeader from '@/components/site-header';
+import SiteFooter from '@/components/site-footer';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const display = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const body = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Undangan Nikah",
-  description: "Undangan nikah by amarayya inv",
+  title: {
+    default: 'Amarayya — Undangan digital, self photo studio, photobooth event',
+    template: '%s — Amarayya',
+  },
+  description:
+    'Amarayya mengurus tiga bagian dari satu acara: undangan digital yang disebar lewat WhatsApp, self photo studio, dan photobooth yang kami bawa ke lokasi acara.',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="id" className={`${display.variable} ${body.variable}`}>
+      <body className="bg-[#EFE9E4] font-body text-[#1A1520] antialiased selection:bg-[#C8203C] selection:text-white">
+        <SiteHeader />
+        <main>{children}</main>
+        <SiteFooter />
+      </body>
     </html>
   );
 }

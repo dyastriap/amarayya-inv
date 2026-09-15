@@ -83,6 +83,33 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../app/layanan/photobooth-event/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/layanan/photobooth-event">> = Specific
+  const handler = {} as typeof import("../../../app/layanan/photobooth-event/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/layanan/self-photo-studio/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/layanan/self-photo-studio">> = Specific
+  const handler = {} as typeof import("../../../app/layanan/self-photo-studio/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/layanan/undangan-digital/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/layanan/undangan-digital">> = Specific
+  const handler = {} as typeof import("../../../app/layanan/undangan-digital/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../app/api/wishes/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/wishes">> = Specific
