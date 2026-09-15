@@ -1,8 +1,8 @@
 /* Satu sumber kebenaran untuk seluruh halaman. Ubah angka & teks di sini saja. */
 
-export const WA = 'https://wa.me/6281234567890';
-export const IG = 'https://instagram.com/amarayya';
-export const ALAMAT = 'Jl. Contoh No. 12, Bogor';
+export const WA = 'https://wa.me/62895377160201';
+export const IG = 'https://instagram.com/amarayyastudio.id';
+export const ALAMAT = 'Kp. Bitung Ratna Ds. Bitung Sari RT 004/002 Kc. Ciawi, Bogor 16720';
 export const JAM = '09.00–21.00 WIB';
 
 export type ServiceKey = 'undangan' | 'studio' | 'photobooth';
