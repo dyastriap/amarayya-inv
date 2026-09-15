@@ -56,6 +56,33 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../app/(site)/layanan/photobooth-event/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/layanan/photobooth-event">> = Specific
+  const handler = {} as typeof import("../../../app/(site)/layanan/photobooth-event/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/(site)/layanan/self-photo-studio/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/layanan/self-photo-studio">> = Specific
+  const handler = {} as typeof import("../../../app/(site)/layanan/self-photo-studio/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/(site)/layanan/undangan-digital/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/layanan/undangan-digital">> = Specific
+  const handler = {} as typeof import("../../../app/(site)/layanan/undangan-digital/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../app/admin/generator/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/admin/generator">> = Specific
@@ -78,33 +105,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends AppPageConfig<"/inv/[slug]">> = Specific
   const handler = {} as typeof import("../../../app/inv/[slug]/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../../app/layanan/photobooth-event/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/layanan/photobooth-event">> = Specific
-  const handler = {} as typeof import("../../../app/layanan/photobooth-event/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../../app/layanan/self-photo-studio/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/layanan/self-photo-studio">> = Specific
-  const handler = {} as typeof import("../../../app/layanan/self-photo-studio/page.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../../app/layanan/undangan-digital/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/layanan/undangan-digital">> = Specific
-  const handler = {} as typeof import("../../../app/layanan/undangan-digital/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

@@ -1,7 +1,7 @@
 {
   "/(main)/page": "app/(main)/page.js",
+  "/(site)/layanan/self-photo-studio/page": "app/(site)/layanan/self-photo-studio/page.js",
+  "/(site)/layanan/undangan-digital/page": "app/(site)/layanan/undangan-digital/page.js",
   "/api/wishes/route": "app/api/wishes/route.js",
-  "/inv/[slug]/page": "app/inv/[slug]/page.js",
-  "/layanan/photobooth-event/page": "app/layanan/photobooth-event/page.js",
-  "/layanan/undangan-digital/page": "app/layanan/undangan-digital/page.js"
+  "/inv/[slug]/page": "app/inv/[slug]/page.js"
 }

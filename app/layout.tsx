@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { Instrument_Serif, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
-import SiteHeader from '@/components/site-header';
-import SiteFooter from '@/components/site-footer';
+import SiteShell from '@/components/site-shell';
 
 const display = Instrument_Serif({
   subsets: ['latin'],
@@ -31,9 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="id" className={`${display.variable} ${body.variable}`}>
       <body className="bg-[#EFE9E4] font-body text-[#1A1520] antialiased selection:bg-[#C8203C] selection:text-white">
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );

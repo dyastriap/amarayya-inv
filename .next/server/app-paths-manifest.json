@@ -1,13 +1,13 @@
 {
   "/(main)/page": "app/(main)/page.js",
+  "/(site)/layanan/photobooth-event/page": "app/(site)/layanan/photobooth-event/page.js",
+  "/(site)/layanan/self-photo-studio/page": "app/(site)/layanan/self-photo-studio/page.js",
+  "/(site)/layanan/undangan-digital/page": "app/(site)/layanan/undangan-digital/page.js",
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/admin/generator/page": "app/admin/generator/page.js",
   "/api/wishes/route": "app/api/wishes/route.js",
   "/dashboard/page": "app/dashboard/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/inv/[slug]/page": "app/inv/[slug]/page.js",
-  "/layanan/photobooth-event/page": "app/layanan/photobooth-event/page.js",
-  "/layanan/self-photo-studio/page": "app/layanan/self-photo-studio/page.js",
-  "/layanan/undangan-digital/page": "app/layanan/undangan-digital/page.js"
+  "/inv/[slug]/page": "app/inv/[slug]/page.js"
 }
