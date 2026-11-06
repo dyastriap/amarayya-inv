@@ -251,8 +251,8 @@ function SaveTheDate({ data }: { data: InvitationData }) {
 }
 
 type WishEntry = { clientName?: string; name: string; attendance: string; message: string };
-// Same-origin Next.js proxy prevents browser CORS errors; see app/api/wishes-proxy/route.ts.
-const WISHES_API = '/api/wishes-proxy';
+// Pakai endpoint same-origin yang sama seperti template lama.
+const WISHES_API = '/api/wishes';
 
 function parseWishes(payload: unknown): WishEntry[] {
   let rows: unknown = payload;
@@ -450,7 +450,7 @@ export default function Template1({ data: incomingData }: { data: InvitationData
 
   return (
     <div className={`floral-invitation ornate-invitation${opened ? '' : ' opening-scene'}`} style={{ '--garden-art': `url("${GARDEN_COVER}")`, '--floral-frame': `url("${FLORAL_FRAME}")` } as CSSProperties}>
-      <audio ref={musicRef} src="/audio/bermuara.mp3" loop preload="none" onPlay={() => setMusicPlaying(true)} onPause={() => setMusicPlaying(false)} />
+      <audio ref={musicRef} src="/audio/lagu-pernikahan.mp3" loop preload="none" onPlay={() => setMusicPlaying(true)} onPause={() => setMusicPlaying(false)} />
       {!opened ? (
         <section className="cover garden-cover" aria-label={`Sampul undangan ${data.clientName}`}>
           <Image className="garden-art" src={GARDEN_COVER} alt="" aria-hidden="true" fill priority unoptimized sizes="(max-width: 560px) 100vw, 560px" />
