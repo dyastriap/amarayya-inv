@@ -742,7 +742,6 @@ export default function Template2({ data }: TemplateProps) {
                 >
                   <img 
                     src={imgUrl} 
-                    alt={`Galeri ${idx + 1}`} 
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
                   />
                 </motion.div>
