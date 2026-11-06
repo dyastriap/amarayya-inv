@@ -89,3 +89,39 @@
 {"timestamp":"05:42:47.770","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
 {"timestamp":"05:45:43.227","source":"Server","level":"LOG","message":"✓ Compiled in 348ms"}
 {"timestamp":"05:45:53.734","source":"Server","level":"LOG","message":"✓ Compiled in 149ms"}
+{"timestamp":"05:50:03.227","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"05:50:06.917","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"05:55:25.236","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"05:55:25.343","source":"Browser","level":"ERROR","message":"uncaughtError: TypeError: Failed to execute 'measure' on 'Performance': '​InvitationPage' cannot have a negative time stamp."}
+{"timestamp":"05:55:25.653","source":"Server","level":"ERROR","message":"[browser] \"\\u001b[31mUncaught TypeError: Failed to execute 'measure' on 'Performance': '​InvitationPage' cannot have a negative time stamp.\\u001b[39m\""}
+{"timestamp":"05:55:25.654","source":"Browser","level":"ERROR","message":"\u001b[31mUncaught TypeError: Failed to execute 'measure' on 'Performance': '​InvitationPage' cannot have a negative time stamp.\u001b[39m"}
+{"timestamp":"06:11:11.326","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"07:08:43.554","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"07:08:43.564","source":"Browser","level":"ERROR","message":"uncaughtError: TypeError: Failed to execute 'measure' on 'Performance': '​InvitationPage' cannot have a negative time stamp."}
+{"timestamp":"07:08:43.726","source":"Server","level":"ERROR","message":"[browser] \"\\u001b[31mUncaught TypeError: Failed to execute 'measure' on 'Performance': '​InvitationPage' cannot have a negative time stamp.\\u001b[39m\""}
+{"timestamp":"07:08:43.758","source":"Browser","level":"ERROR","message":"\u001b[31mUncaught TypeError: Failed to execute 'measure' on 'Performance': '​InvitationPage' cannot have a negative time stamp.\u001b[39m"}
+{"timestamp":"07:08:53.196","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"07:09:24.513","source":"Server","level":"LOG","message":"✓ Compiled in 357ms"}
+{"timestamp":"07:09:38.658","source":"Server","level":"LOG","message":"✓ Compiled in 118ms"}
+{"timestamp":"07:09:53.984","source":"Server","level":"LOG","message":"✓ Compiled in 89ms"}
+{"timestamp":"07:10:03.842","source":"Server","level":"LOG","message":"✓ Compiled in 51ms"}
+{"timestamp":"07:12:31.129","source":"Server","level":"LOG","message":"✓ Compiled in 84ms"}
+{"timestamp":"07:12:42.717","source":"Server","level":"LOG","message":"✓ Compiled in 172ms"}
+{"timestamp":"07:12:46.905","source":"Server","level":"LOG","message":"✓ Compiled in 133ms"}
+{"timestamp":"07:12:49.713","source":"Server","level":"LOG","message":"✓ Compiled in 172ms"}
+{"timestamp":"07:13:12.760","source":"Server","level":"LOG","message":"✓ Compiled in 476ms"}
+{"timestamp":"07:13:13.561","source":"Server","level":"LOG","message":"✓ Compiled in 298ms"}
+{"timestamp":"07:13:19.038","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"07:13:28.553","source":"Server","level":"LOG","message":"✓ Compiled in 224ms"}
+{"timestamp":"07:13:44.530","source":"Server","level":"LOG","message":"✓ Compiled in 289ms"}
+{"timestamp":"07:13:52.431","source":"Server","level":"LOG","message":"✓ Compiled in 184ms"}
+{"timestamp":"07:14:55.668","source":"Server","level":"LOG","message":"✓ Compiled in 238ms"}
+{"timestamp":"07:15:01.308","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"07:16:00.154","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"07:19:06.346","source":"Server","level":"LOG","message":"✓ Compiled in 203ms"}
+{"timestamp":"07:21:57.818","source":"Server","level":"LOG","message":"✓ Compiled in 196ms"}
+{"timestamp":"07:21:59.781","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"07:24:48.270","source":"Server","level":"LOG","message":"✓ Compiled in 292ms"}
+{"timestamp":"07:29:47.215","source":"Server","level":"LOG","message":"✓ Compiled in 217ms"}
+{"timestamp":"07:32:55.588","source":"Server","level":"LOG","message":"✓ Compiled in 208ms"}
+{"timestamp":"07:33:03.988","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}

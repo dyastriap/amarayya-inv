@@ -251,7 +251,8 @@ function SaveTheDate({ data }: { data: InvitationData }) {
 }
 
 type WishEntry = { clientName?: string; name: string; attendance: string; message: string };
-const WISHES_API = 'https://www.amarayya.com/api/wishes';
+// Same-origin Next.js proxy prevents browser CORS errors; see app/api/wishes-proxy/route.ts.
+const WISHES_API = '/api/wishes-proxy';
 
 function parseWishes(payload: unknown): WishEntry[] {
   let rows: unknown = payload;
@@ -376,7 +377,7 @@ const IKY_SOFI: InvitationData = {
     { bank: 'GoPay', accountNumber: '087849455236', accountName: 'Rizky Maulana', note: 'Untuk pengantin' },
     { bank: 'DANA', accountNumber: '088293025551', accountName: 'Sofiyati', note: 'Untuk orang tua' },
   ],
-  partnerNames: ['Rizky Maulana', 'Sofiyati'],
+  partnerNames: ['Rizky', 'Sofiyati'],
   nicknames: ['Iky', 'Sofi'],
   parents: [
     'Putra dari Bapak Suhanda & Ibu Liah Hartati',
@@ -413,14 +414,30 @@ export default function Template1({ data: incomingData }: { data: InvitationData
         events: incomingData.events ?? IKY_SOFI.events }
     : incomingData;
   const [opened, setOpened] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
   const [guest, setGuest] = useState('Bapak / Ibu / Saudara/i');
   const heading = useRef<HTMLHeadingElement>(null);
+  const musicRef = useRef<HTMLAudioElement>(null);
   const parsed = data.clientName.split(/\s*(?:&|\bdan\b)\s*/i).filter(Boolean);
-  const names = data.partnerNames ?? (parsed.length === 2 ? parsed : [data.clientName]);
+  const fullNames = parsed.length === 2 ? parsed : [data.clientName];
+  const names = data.partnerNames ?? fullNames;
   const displayNames = data.nicknames ?? names;
   const initials = displayNames.map(n => Array.from(n.trim())[0] ?? '').join(' · ');
   const rawPhone = data.rsvpPhone?.replace(/\D/g, '') ?? '';
   const phone = rawPhone.startsWith('0') ? `62${rawPhone.slice(1)}` : rawPhone;
+
+  const openInvitation = () => {
+    setOpened(true);
+    const player = musicRef.current;
+    if (player) void player.play().catch(() => setMusicPlaying(false));
+  };
+
+  const toggleMusic = () => {
+    const player = musicRef.current;
+    if (!player) return;
+    if (player.paused) void player.play().catch(() => setMusicPlaying(false));
+    else player.pause();
+  };
 
   useEffect(() => {
     const recipient = new URLSearchParams(window.location.search).get('to')?.trim();
@@ -433,6 +450,7 @@ export default function Template1({ data: incomingData }: { data: InvitationData
 
   return (
     <div className={`floral-invitation ornate-invitation${opened ? '' : ' opening-scene'}`} style={{ '--garden-art': `url("${GARDEN_COVER}")`, '--floral-frame': `url("${FLORAL_FRAME}")` } as CSSProperties}>
+      <audio ref={musicRef} src="/audio/bermuara.mp3" loop preload="none" onPlay={() => setMusicPlaying(true)} onPause={() => setMusicPlaying(false)} />
       {!opened ? (
         <section className="cover garden-cover" aria-label={`Sampul undangan ${data.clientName}`}>
           <Image className="garden-art" src={GARDEN_COVER} alt="" aria-hidden="true" fill priority unoptimized sizes="(max-width: 560px) 100vw, 560px" />
@@ -443,7 +461,7 @@ export default function Template1({ data: incomingData }: { data: InvitationData
             <h1>{names.map((n,i) => <span key={i}>{i > 0 && <em>&</em>}{n}</span>)}</h1>
             <p className="date">{data.weddingDate}</p>
             <div className="recipient"><span>Kepada Yth. Bapak/Ibu/Saudara/i</span><strong>{guest === 'Bapak / Ibu / Saudara/i' ? 'Tamu Undangan' : guest}</strong></div>
-            <button className="button" onClick={() => setOpened(true)}><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M12 5v15M12 5C8 2 4 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-2-1-6-2-10 1Z" /></svg>Buka Undangan</button>
+            <button className="button" onClick={openInvitation}><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M12 5v15M12 5C8 2 4 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-2-1-6-1-10 1Z" /></svg>Buka Undangan</button>
             <p className="cover-note">Sebuah awal, untuk selamanya.</p>
           </div>
         </section>
@@ -455,7 +473,7 @@ export default function Template1({ data: incomingData }: { data: InvitationData
               <div className="hero-garden" aria-hidden="true" />
               <div className="hero-content">
                 <Flourish /><p className="eyebrow">DENGAN PENUH CINTA</p>
-                {data.imageSrc && <Image className="couple-illustration hero-portrait" src={data.imageSrc} alt={`Ilustrasi ${data.clientName}`} width={1024} height={1536} unoptimized />}
+                {data.imageSrc && <Image className="couple-illustration hero-portrait" src={data.imageSrc} alt={`Ilustrasi ${names.join(' & ')}`} width={1024} height={1536} unoptimized />}
                 <h1 ref={heading} tabIndex={-1}>{names.map((n,i) => <span key={i}>{i > 0 && <em>&</em>}{n}</span>)}</h1>
                 <div className="tiny-rule" /><p className="date">{data.weddingDate}</p>
                 <a className="text-link" href="#mempelai">Kisah baru kami <span aria-hidden="true">↓</span></a>
@@ -478,7 +496,7 @@ export default function Template1({ data: incomingData }: { data: InvitationData
               <h2 className="script-title">Kedua Mempelai</h2>
               <p className="body-copy">Dengan penuh rasa syukur dan bahagia, kami mengundang Bapak/Ibu/Saudara/i untuk menjadi bagian dari hari pernikahan kami.</p>
               <div className="couple">
-                {names.map((n,i) => <div className="person" key={i}><span className="person-number">{i === 0 ? 'MEMPELAI PRIA' : 'MEMPELAI WANITA'}</span><h3>{n}</h3>{data.parents?.[i] && <p>{data.parents[i]}</p>}</div>)}
+                {fullNames.map((n,i) => <div className="person" key={i}><span className="person-number">{i === 0 ? 'MEMPELAI PRIA' : 'MEMPELAI WANITA'}</span><h3>{n}</h3>{data.parents?.[i] && <p>{data.parents[i]}</p>}</div>)}
               </div>
               <p className="small-quote">“Bersamamu, hal-hal sederhana menjadi istimewa.”</p>
             </section>
@@ -509,6 +527,7 @@ export default function Template1({ data: incomingData }: { data: InvitationData
           <nav className="bottom-nav" aria-label="Navigasi undangan"><a href="#home">Awal</a><a href="#acara">Acara</a><a href="#rsvp">Hadir</a><a href="#hadiah">Hadiah</a></nav>
         </>
       )}
+      {opened && <button type="button" className="music-toggle" onClick={toggleMusic} aria-pressed={musicPlaying} aria-label={musicPlaying ? 'Jeda musik' : 'Putar musik'}><span aria-hidden="true">♫</span>{musicPlaying ? 'Jeda musik' : 'Putar musik'}</button>}
       <style jsx global>{`
         .floral-invitation .couple-illustration{display:block;object-fit:contain;margin:0 auto 25px;max-width:100%;height:auto}
         .floral-invitation .cover-portrait{width:150px;border-radius:100px 100px 8px 8px}
@@ -709,6 +728,8 @@ export default function Template1({ data: incomingData }: { data: InvitationData
         .ornate-invitation footer h2{font-family:'Wedding Script',cursive;font-size:44px;line-height:1.3;letter-spacing:0}
         .ornate-invitation .bottom-nav{max-width:620px;margin:auto;background:#4b1826f5;color:#fff3dc;border-top:1px solid #c3a575;gap:0;justify-content:space-around;padding:13px 8px calc(13px + env(safe-area-inset-bottom))}
         .ornate-invitation .bottom-nav a{font-size:10px;letter-spacing:.8px;padding:10px 6px}
+        .ornate-invitation .music-toggle{position:fixed;z-index:12;right:max(16px,calc((100vw - 560px)/2 + 16px));bottom:calc(78px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:8px;padding:11px 15px;border:1px solid #c7a879;border-radius:28px;background:#4b1826;color:#fff3dc;font-size:11px;box-shadow:0 5px 18px #24100d35;cursor:pointer}
+        .ornate-invitation .music-toggle span{font-size:17px;line-height:1}
         @media(min-width:600px){.ornate-invitation .section:not(.save-date):not(.events){padding-top:150px;padding-bottom:150px}}
         @media(max-width:360px){.ornate-invitation .section:not(.save-date):not(.events){padding-inline:14%;padding-block:95px}.ornate-invitation .hero{padding-inline:30px}.ornate-invitation .hero-content{padding-inline:12px}.ornate-invitation .section h2.script-title{font-size:41px}.ornate-invitation .intro .person h3{font-size:35px}.ornate-invitation .events,.ornate-invitation .save-date{padding-inline:22px}}
 
