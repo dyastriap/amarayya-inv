@@ -26,6 +26,7 @@ export interface ClientData {
   bridePhoto?: string;
   audioUrl?: string;
   giftAddress?: string;
+  galleryImages?: string[];
 }
 
 interface TemplateProps {
@@ -95,7 +96,7 @@ const staggerContainer: Variants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
 };
 
-export default function Template1({ data }: TemplateProps) {
+export default function Template2({ data }: TemplateProps) {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -120,24 +121,26 @@ export default function Template1({ data }: TemplateProps) {
   const rawNames = data.clientName ? data.clientName.split(/&|dan/i) : [];
   const groomFirst = data.groomName 
     ? data.groomName.split(' ')[0] 
-    : (rawNames[0] ? rawNames[0].trim() : 'Mustopa');
+    : (rawNames[0] ? rawNames[0].trim() : 'Pengantin Pria');
   
   const brideFirst = data.brideName 
     ? data.brideName.split(' ')[0] 
-    : (rawNames[1] ? rawNames[1].trim() : 'Firsta');
+    : (rawNames[1] ? rawNames[1].trim() : 'Pengantin Wanita');
   
   const monogramText = data.monogram || `${groomFirst.charAt(0)}${brideFirst.charAt(0)}`;
 
-  const tempGalleryImages = [
-    ASSETS.foto1,
-    ASSETS.foto2,
-    ASSETS.foto3,
-    ASSETS.foto4,
-    ASSETS.foto5,
-    ASSETS.foto6,
-  ];
+  const defaultAddress = data.address || 'Alamat akan diinformasikan kemudian';
 
-  const defaultAddress = "Kp. Bojong Kaum, Rt. 01/02 Ds. Bojong Kec. Kemang Kab. Bogor kode pos 16310";
+  const tempGalleryImages = data.galleryImages?.length 
+    ? data.galleryImages 
+    : [
+        ASSETS.foto1,
+        ASSETS.foto2,
+        ASSETS.foto3,
+        ASSETS.foto4,
+        ASSETS.foto5,
+        ASSETS.foto6,
+      ];
 
   const fetchWishes = async () => {
     try {
@@ -163,7 +166,7 @@ export default function Template1({ data }: TemplateProps) {
       setGuestName(to);
     }
 
-    const targetDate = new Date(data.weddingDate).getTime() || new Date('2027-11-27T10:00:00').getTime();
+    const targetDate = data.weddingDate ? new Date(data.weddingDate).getTime() : 0;
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -514,11 +517,11 @@ export default function Template1({ data }: TemplateProps) {
 
               <div className="space-y-1.5 pt-2">
                 <h2 className="font-serif-wedding text-2xl sm:text-3xl font-bold text-white tracking-wide leading-snug drop-shadow-md">
-                  {data.groomName || 'Mustopa Abdulmajid, S.E.'}
+                  {data.groomName || 'Nama Pengantin Pria'}
                 </h2>
 
                 <p className="text-xs text-stone-200/90 font-light max-w-xs mx-auto pt-1 leading-relaxed">
-                  {data.groomParents || 'Putra ke-4 ( bungsu ) dari Bapak Ustad Yeyep Abu Bakar Soleh dan Ibu Rohimah'}
+                  {data.groomParents || 'Putra dari Bapak & Ibu'}
                 </p>
               </div>
 
@@ -543,11 +546,11 @@ export default function Template1({ data }: TemplateProps) {
 
               <div className="space-y-1.5 pt-2">
                 <h2 className="font-serif-wedding text-2xl sm:text-3xl font-bold text-white tracking-wide leading-snug drop-shadow-md">
-                  {data.brideName || 'Ns. Firsta Hilwa, S.Kep.'}
+                  {data.brideName || 'Nama Pengantin Wanita'}
                 </h2>
 
                 <p className="text-xs text-stone-200/90 font-light max-w-xs mx-auto pt-1 leading-relaxed">
-                  {data.brideParents || 'Putri Pertama dari Bapak Djumino dan Ibu Aenah'}
+                  {data.brideParents || 'Putri dari Bapak & Ibu'}
                 </p>
               </div>
 
@@ -598,7 +601,7 @@ export default function Template1({ data }: TemplateProps) {
               Save The Date
             </h2>
             <p className="text-xs font-semibold text-amber-300/90 tracking-wider drop-shadow">
-              {data.weddingDate || 'Minggu, 6 September 2026'}
+              {data.weddingDate || 'Tanggal akan diinformasikan'}
             </p>
             
             <div className="grid grid-cols-4 gap-2.5 max-w-xs mx-auto pt-2 min-h-[88px]">
@@ -647,8 +650,8 @@ export default function Template1({ data }: TemplateProps) {
 
                 <div className="space-y-3 z-10 w-full">
                   <div className="font-serif-wedding text-[24px] leading-snug text-white tracking-wide drop-shadow-md px-2">
-                    <p>Minggu,</p>
-                    <p className="text-amber-200">06 September 2026</p>
+                    <p>{data.weddingDate ? new Date(data.weddingDate).toLocaleDateString('id-ID', { weekday: 'long' }) : 'Hari'}</p>
+                    <p className="text-amber-200">{data.weddingDate ? new Date(data.weddingDate).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Tanggal'}</p>
                   </div>
                   <div className="inline-flex items-center justify-center gap-2 bg-[#2a0307] px-6 py-2.5 rounded-full border border-amber-500/10 text-amber-300 text-[11px] font-bold tracking-widest shadow-inner mt-2">
                     {data.eventTime || '10:00 WIB - Selesai'}
@@ -673,7 +676,7 @@ export default function Template1({ data }: TemplateProps) {
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  href="https://maps.app.goo.gl/cGiXjHXsbDug16q57"
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.address || data.location || '')}`}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-4 inline-flex items-center gap-2 bg-[#eab308] hover:bg-[#ca8a04] text-[#3f070e] font-black py-3.5 px-8 rounded-full text-[10px] uppercase tracking-widest shadow-[0_0_15px_rgba(234,179,8,0.4)] transition-all cursor-pointer z-10 border border-amber-300/50"
@@ -731,7 +734,7 @@ export default function Template1({ data }: TemplateProps) {
             </motion.div>
 
             <div className="grid grid-cols-3 gap-1.5 max-w-[340px] mx-auto">
-              {tempGalleryImages.map((imgUrl, idx) => (
+              {tempGalleryImages.map((imgUrl: string | Blob | undefined, idx: React.Key | null | undefined) => (
                 <motion.div 
                   key={idx} 
                   variants={fadeInUp}
@@ -854,15 +857,16 @@ export default function Template1({ data }: TemplateProps) {
                 <div>
                   <p className="text-[11px] text-stone-400 uppercase tracking-wider">Pengantin</p>
                   <p className="font-mono text-lg font-bold text-amber-200 tracking-wider pt-0.5">
-                    {data.groomBankNumber || '7005805091'}
+                    {data.groomBankNumber || '-'}
                   </p>
                   <p className="text-xs text-stone-300">
-                    a.n. {data.groomBankHolder || data.groomName || 'Mustopa Abdulmajid'}
+                    a.n. {data.groomBankHolder || data.groomName || 'Nama Pengantin Pria'}
                   </p>
                 </div>
                 <button
-                  onClick={() => copyToClipboard(data.groomBankNumber || '7005805091', `Rekening Pengantin Pria`)}
+                  onClick={() => copyToClipboard(data.groomBankNumber || '', `Rekening Pengantin Pria`)}
                   className="w-full bg-[#641823] hover:bg-[#851824] border border-amber-400/40 text-amber-200 text-xs font-bold py-2.5 rounded-xl transition-colors text-center shadow-md cursor-pointer"
+                  disabled={!data.groomBankNumber}
                 >
                   📋 Salin Rekening 
                 </button>
@@ -881,15 +885,16 @@ export default function Template1({ data }: TemplateProps) {
                 <div>
                   <p className="text-[11px] text-stone-400 uppercase tracking-wider">Orang Tua</p>
                   <p className="font-mono text-lg font-bold text-amber-200 tracking-wider pt-0.5">
-                    {data.brideBankNumber || '7005245265'}
+                    {data.brideBankNumber || '-'}
                   </p>
                   <p className="text-xs text-stone-300">
-                    a.n. {data.brideBankHolder || data.brideName || 'Siti Latifah Sadiah'}
+                    a.n. {data.brideBankHolder || data.brideName || 'Nama Pengantin Wanita'}
                   </p>
                 </div>
                 <button
-                  onClick={() => copyToClipboard(data.brideBankNumber || '7005245265', `Rekening Pengantin Wanita`)}
+                  onClick={() => copyToClipboard(data.brideBankNumber || '', `Rekening Pengantin Wanita`)}
                   className="w-full bg-[#641823] hover:bg-[#851824] border border-amber-400/40 text-amber-200 text-xs font-bold py-2.5 rounded-xl transition-colors text-center shadow-md cursor-pointer"
+                  disabled={!data.brideBankNumber}
                 >
                   📋 Salin Rekening 
                 </button>
@@ -908,12 +913,13 @@ export default function Template1({ data }: TemplateProps) {
                 <div>
                   <p className="text-[11px] text-stone-400 uppercase tracking-wider mb-1">Kirim Ke Alamat:</p>
                   <p className="text-xs text-stone-200 leading-relaxed">
-                    {data.giftAddress || defaultAddress}
+                    {data.giftAddress || data.address || 'Alamat akan diinformasikan'}
                   </p>
                 </div>
                 <button
-                  onClick={() => copyToClipboard(data.giftAddress || defaultAddress, `Alamat Pengiriman`)}
+                  onClick={() => copyToClipboard(data.giftAddress || data.address || '', `Alamat Pengiriman`)}
                   className="w-full bg-[#641823] hover:bg-[#851824] border border-amber-400/40 text-amber-200 text-xs font-bold py-2.5 rounded-xl transition-colors text-center shadow-md cursor-pointer"
+                  disabled={!data.giftAddress && !data.address}
                 >
                   📍 Salin Alamat
                 </button>
@@ -945,7 +951,7 @@ export default function Template1({ data }: TemplateProps) {
               </p>
               
               <p className="font-wedding-title text-4xl sm:text-5xl text-amber-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] py-1 leading-snug">
-                Mustopa <br /> & <br /> Firsta
+                {groomFirst} <br /> & <br /> {brideFirst}
               </p>
             </div>
           </div>

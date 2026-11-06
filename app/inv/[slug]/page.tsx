@@ -27,6 +27,11 @@ const mockDatabase: Record<string, ClientData> = {
     weddingDate: 'Minggu, 06 September 2026',
     templateId: 'template2',
   },
+  'rizky-dan-sofiyanti': {
+  clientName: 'Rizky Maulana & Sofiyanti',
+  weddingDate: 'Senin, 17 Agustus 2026',
+  templateId: 'template1',
+},
 };
 
 // 3. Mapping Komponen Template
