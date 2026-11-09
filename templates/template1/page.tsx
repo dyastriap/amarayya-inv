@@ -292,6 +292,7 @@ const IKY_SOFI: InvitationData = {
   clientName: 'Rizky Maulana & Sofiyati',
   weddingDate: 'Rabu, 18 November 2026',
   templateId: 'template1',
+
   gallery: ['/image/client2/gambar1.jpeg', '/image/client2/gambar2.jpeg', '/image/client2/gambar3.jpeg'],
   shippingGift: { recipient: 'RIZKY', address: 'Kp Pondok Rajeg RT 04/02, No. 70 (Gang Haji Raing), Pondok Rajeg, Cibinong, Kab. Bogor, Jawa Barat 16914' },
   receptionISO: '2026-11-18T09:00:00+07:00',
@@ -301,7 +302,7 @@ const IKY_SOFI: InvitationData = {
     { bank: 'DANA', accountNumber: '088293025551', accountName: 'Sofiyati', note: 'Untuk orang tua' },
   ],
   partnerNames: ['Rizky Maulana', 'Sofiyati'],
-  nicknames: ['Iky', 'Sofi'],
+  nicknames: ['Rizky', 'Sofiyati'],
   parents: [
     'Putra dari Bapak Suhanda & Ibu Liah Hartati',
     'Putri dari Bapak Nana Kuspriyana & Ibu Bonatin',
