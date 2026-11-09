@@ -301,11 +301,12 @@ const IKY_SOFI: InvitationData = {
     { bank: 'GoPay', accountNumber: '087849455236', accountName: 'Rizky', note: 'Untuk pengantin' },
     { bank: 'DANA', accountNumber: '088293025551', accountName: 'Sofiyati', note: 'Untuk orang tua' },
   ],
-  partnerNames: ['Rizky Maulana', 'Sofiyati'],
-  nicknames: ['Rizky', 'Sofiyati'],
+  partnerNames: [ 'Sofiyati', 'Rizky Maulana'],
+  nicknames: ['Sofiyati','Rizky'],
   parents: [
-    'Putra dari Bapak Suhanda & Ibu Liah Hartati',
     'Putri dari Bapak Nana Kuspriyana & Ibu Bonatin',
+    'Putra dari Bapak Suhanda & Ibu Liah Hartati',
+    
   ],
   // Satu alamat yang diberikan dipakai untuk kedua acara. Ubah bila berbeda.
   events: [
@@ -346,7 +347,7 @@ export default function Template1({ data: incomingData }: { data: InvitationData
   const parsed = data.clientName.split(/\s*(?:&|\bdan\b)\s*/i).filter(Boolean);
   const fullNames = parsed.length === 2 ? parsed : [data.clientName];
   const introductionNames = data.partnerNames ?? fullNames;
-  const names = isIkySofi ? ['Rizky', 'Sofiyati'] : introductionNames;
+  const names = isIkySofi ? ['Sofiyati', 'Rizky'] : introductionNames;
   const displayTitle = names.join(' & ');
   const coverNames = isIkySofi ? ['Sofiyati', 'Rizky'] : names;
   const displayNames = data.nicknames ?? names;
@@ -439,7 +440,7 @@ export default function Template1({ data: incomingData }: { data: InvitationData
               <h2 className="script-title">Kedua Mempelai</h2>
               <p className="body-copy">Dengan penuh rasa syukur dan bahagia, kami mengundang Bapak/Ibu/Saudara/i untuk menjadi bagian dari hari pernikahan kami.</p>
               <div className="couple">
-                {introductionNames.map((n,i) => <div className="person" key={i}><span className="person-number">{i === 0 ? 'MEMPELAI PRIA' : 'MEMPELAI WANITA'}</span><h3>{n}</h3>{data.parents?.[i] && <p>{data.parents[i]}</p>}</div>)}
+                {introductionNames.map((n,i) => <div className="person" key={i}><span className="person-number">{i === 0 ? 'MEMPELAI WANITA' : 'MEMPELAI PRIA'}</span><h3>{n}</h3>{data.parents?.[i] && <p>{data.parents[i]}</p>}</div>)}
               </div>
               <p className="small-quote">“Bersamamu, hal-hal sederhana menjadi istimewa.”</p>
             </section>
